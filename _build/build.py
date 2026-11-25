@@ -4,7 +4,7 @@ import re
 import sys
 
 SRC = '/mnt/user-data/outputs/artifacts/619adda7-f999-414c-b2be-2d68446844f0/project/'
-OUT = sys.argv[1] if len(sys.argv) > 1 else '/home/claude/site-cynder/'
+OUT = sys.argv[1] if len(sys.argv) > 1 else '/home/claude/site-cynder/public/'
 DOMAIN = 'https://cynderfilmes.com.br'
 AMAP = json.load(open('/home/claude/export/amap.json'))
 PAGES = {

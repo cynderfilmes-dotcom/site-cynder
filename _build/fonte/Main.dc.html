@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cynder Filmes — Home</title>
+<script src="./support.js"></script>
+<link rel="icon" type="image/png" href="/_blob/9038c99c225b744a8561382bb7fe7ebd">
+<link rel="apple-touch-icon" href="/_blob/7c4b58f178087e39bf39e82af741873d">
+<meta name="description" content="Cynder Filmes: produtora audiovisual em Nova Petrópolis (RS). Vídeos estratégicos para empresas, cobertura de eventos e filmes de casamento.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cynder Filmes · Vídeos que ascendem seu negócio">
+<meta property="og:description" content="Produtora audiovisual em Nova Petrópolis (RS). Vídeos para empresas, eventos e casamentos.">
+<meta property="og:image" content="/_blob/3a53f09cedccd2036b1b24013dd0cbb5">
+<meta name="theme-color" content="#060505">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.cy-intro{position:fixed;inset:0;z-index:10000;background:#050505;display:flex;align-items:center;justify-content:center;pointer-events:none;animation:cy-introout .7s ease 1.9s forwards}
+.cy-intro-ember{position:absolute;width:14px;height:14px;border-radius:50%;background:#FF6A3D;box-shadow:0 0 30px 10px rgba(244,69,15,.8),0 0 120px 40px rgba(244,69,15,.35);animation:cy-ember 1.1s cubic-bezier(.3,0,.2,1) forwards}
+.cy-intro-sym{position:relative;width:120px;height:auto;opacity:0;transform:scale(.3);filter:blur(10px) drop-shadow(0 0 30px rgba(244,69,15,.7));animation:cy-symin .7s cubic-bezier(.2,1.4,.4,1) .55s forwards}
+.cy-intro-logo{position:absolute;width:min(420px,70vw);height:auto;opacity:0;transform:translateY(26px);animation:cy-logoin .6s ease 1.15s forwards}
+@keyframes cy-ember{0%{transform:scale(.2);opacity:0}40%{opacity:1}100%{transform:scale(3);opacity:0}}
+@keyframes cy-symin{to{opacity:1;transform:scale(1);filter:blur(0) drop-shadow(0 0 30px rgba(244,69,15,.7))}}
+@keyframes cy-logoin{0%{opacity:0;transform:translateY(130px)}100%{opacity:1;transform:translateY(120px)}}
+@keyframes cy-introout{to{opacity:0;visibility:hidden}}
+@media (prefers-reduced-motion:reduce){.cy-intro{display:none}}
+.cy-cursor{position:fixed;left:0;top:0;width:400px;height:400px;border-radius:50%;pointer-events:none;z-index:9990;background:radial-gradient(circle,rgba(244,69,15,.16),rgba(244,69,15,.06) 35%,rgba(244,69,15,0) 68%);opacity:0;transition:opacity .4s ease;will-change:transform;mix-blend-mode:normal}
+.cy-cursor.on{opacity:1}
+@media (hover:none){.cy-cursor{display:none}}
+.cy-top{position:fixed;right:30px;bottom:104px;z-index:9998;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#050505;border:1.5px solid rgba(244,69,15,.7);box-shadow:0 12px 28px -10px rgba(0,0,0,.6);transition:transform .25s ease,background .25s ease;animation:cy-topin linear both;animation-timeline:scroll(root);animation-range:0 700px}
+.cy-top:hover{transform:translateY(-4px);background:#F4450F}
+.cy-top:hover svg{stroke:#050505}
+@keyframes cy-topin{0%{opacity:0;transform:translateY(16px) scale(.8);pointer-events:none}100%{opacity:1;transform:none}}
+@supports not (animation-timeline: scroll()){.cy-top{animation:none}}
+@media (max-width:640px){.cy-top{right:20px;bottom:88px;width:46px;height:46px}}
+.cy-gmb{display:inline-flex;align-items:center;gap:8px;color:#F3EFE9;text-decoration:none;font-size:14px;font-weight:700;border:1px solid rgba(243,239,233,.25);border-radius:999px;padding:10px 16px;transition:border-color .25s ease,background .25s ease}
+.cy-gmb:hover{border-color:#FBBC05;background:rgba(251,188,5,.08)}
+.cy-pinwrap{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center}
+.cy-pin{display:inline-flex;align-items:center;gap:7px;font-family:inherit;cursor:pointer;border:1px solid rgba(243,239,233,.28);background:rgba(13,12,12,.88);color:#F3EFE9;font-size:12px;font-weight:700;padding:7px 12px 7px 9px;border-radius:999px;min-height:40px;white-space:nowrap;transition:transform .2s ease,border-color .2s ease,background .2s ease;backdrop-filter:blur(4px)}
+.cy-pin:hover{transform:translateY(-3px);border-color:#F4450F}
+.cy-pin.base{border-color:#F4450F;background:#F4450F;color:#050505;font-size:15px;font-weight:800;padding:12px 20px 12px 14px;box-shadow:0 0 0 6px rgba(244,69,15,.18),0 0 50px rgba(244,69,15,.6)}
+.cy-pin.base .cy-pdot{background:#050505;box-shadow:none}
+.cy-orbit{animation:cy-orb 20s linear infinite}
+.cy-orbit.o2{animation-duration:30s;animation-direction:reverse}
+@keyframes cy-orb{to{stroke-dashoffset:-200}}
+.cy-pin.on{background:#F4450F;color:#050505;border-color:#F4450F}
+.cy-pdot{width:10px;height:10px;border-radius:50%;background:#F4450F;box-shadow:0 0 0 3px rgba(244,69,15,.3)}
+.cy-pin.on .cy-pdot{background:#050505;box-shadow:none}
+.cy-pop2{position:absolute;top:calc(100% + 8px);display:flex;gap:6px;background:#F3EFE9;padding:6px;border-radius:16px;box-shadow:0 20px 40px -14px rgba(0,0,0,.7);animation:cy-rise .25s ease both}
+.cy-pop2 a{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;text-decoration:none;color:#050505;font-size:13px;font-weight:700;padding:10px 12px;border-radius:11px;min-height:24px}
+.cy-pop2 a:hover{background:#F4450F}
+.ig-stage{perspective:1600px;display:flex;justify-content:center;padding:20px 0}
+.ig-phone{position:relative;display:block;width:330px;height:670px;border-radius:52px;background:#0B0B0B;padding:14px;box-sizing:border-box;text-decoration:none;color:#FFFFFF;transform-style:preserve-3d;transform:rotateY(-22deg) rotateX(8deg) rotateZ(1deg);box-shadow:0 0 0 2px #2A2A2A,0 0 0 9px #141414,30px 50px 90px -20px rgba(0,0,0,.55),0 40px 120px -30px rgba(244,69,15,.55);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.ig-phone:hover{transform:rotateY(-6deg) rotateX(3deg) rotateZ(0deg)}
+.ig-phone::before{content:"";position:absolute;top:24px;left:50%;width:96px;height:26px;margin-left:-48px;border-radius:999px;background:#000;z-index:3}
+.ig-screen{position:relative;display:block;width:100%;height:100%;border-radius:40px;overflow:hidden;background:#000;font-family:-apple-system,'Helvetica Neue',Inter,Arial,sans-serif}
+.ig-scroll{display:flex;flex-direction:column;gap:12px;padding:56px 0 0;animation:ig-scroll 14s ease-in-out infinite}
+.ig-phone:hover .ig-scroll{animation-play-state:paused}
+@keyframes ig-scroll{0%,20%{transform:translateY(0)}55%,75%{transform:translateY(-250px)}100%{transform:translateY(0)}}
+.ig-top{display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:18px;font-weight:700}
+.ig-head{display:flex;align-items:center;gap:18px;padding:0 16px}
+.ig-av{flex:none;width:78px;height:78px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#FDF497,#FD5949,#D6249F,#285AEB)}
+.ig-av img{width:100%;height:100%;border-radius:50%;object-fit:contain;background:#000;border:3px solid #000;padding:0 7px;box-sizing:border-box}
+.ig-stats{flex:1;display:flex;justify-content:space-around;text-align:center;font-size:11px;color:#DDDDDD}
+.ig-stats span{display:flex;flex-direction:column;gap:2px}
+.ig-stats b{font-size:16px;color:#FFFFFF}
+.ig-bio{display:flex;flex-direction:column;gap:2px;padding:0 16px;font-size:12px;line-height:1.45;color:#EDEDED}
+.ig-bio b{font-size:13px;color:#FFFFFF}
+.ig-link{color:#E0F1FF;font-weight:600}
+.ig-btns{display:flex;gap:6px;padding:0 16px}
+.ig-btns span{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 0;border-radius:9px}
+.ig-follow{background:#0095F6}
+.ig-msg{background:#262626}
+.ig-hls{display:flex;gap:12px;padding:2px 16px}
+.ig-hl{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;color:#DDDDDD}
+.ig-hlc{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#6B1B05,#200703);box-shadow:0 0 0 2px #000,0 0 0 3.5px #3A3A3A}
+.ig-tabs{display:flex;border-top:1px solid #262626;margin-top:4px}
+.ig-tabs span{flex:1;height:34px;position:relative}
+.ig-tabs span::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border:2px solid #777;border-radius:3px;box-sizing:border-box}
+.ig-tabs span.on{border-bottom:1.5px solid #FFFFFF}
+.ig-tabs span.on::after{border-color:#FFFFFF}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ig-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.ig-badge{position:absolute;z-index:4;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:#FFFFFF;color:#050505;font-size:14px;padding:12px 16px;border-radius:16px;box-shadow:0 20px 40px -14px rgba(0,0,0,.35),0 0 0 1px rgba(5,5,5,.06);animation:ig-bob 5s ease-in-out infinite}
+.ig-badge strong{color:#F4450F;font-size:18px}
+.ig-badge.b1{left:-110px;top:120px;transform:translateZ(90px)}
+.ig-badge.b2{right:-96px;top:300px;transform:translateZ(130px);animation-delay:-1.6s}
+.ig-badge.b3{left:-70px;bottom:110px;transform:translateZ(70px);animation-delay:-3s}
+@keyframes ig-bob{0%,100%{margin-top:0}50%{margin-top:-12px}}
+@media (max-width:760px){.ig-badge.b1{left:-20px}.ig-badge.b2{right:-14px}.ig-badge.b3{left:-10px}.ig-phone{transform:rotateY(-10deg) rotateX(4deg)}}
+.cy-city{display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(243,239,233,.25);font-size:14px;font-weight:600;color:#F3EFE9}
+.cy-city.on{border-color:#F4450F;color:#FF6A3D;background:rgba(244,69,15,.1)}
+.cy-radar{transform-box:fill-box;transform-origin:center;animation:cy-radar 2.8s ease-out infinite}
+.cy-radar.r2{animation-delay:-1.4s}
+@keyframes cy-radar{from{transform:scale(.25);opacity:.9}to{transform:scale(1.6);opacity:0}}
+.cy-mapline{animation:cy-dash 1.6s linear infinite}
+@keyframes cy-dash{to{stroke-dashoffset:-24}}
+.cy-wa{position:fixed;right:24px;bottom:24px;z-index:9999;width:64px;height:64px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px -10px rgba(0,0,0,.55),0 0 0 0 rgba(37,211,102,.6);animation:cy-wapulse 2.4s ease-out infinite;transition:transform .25s cubic-bezier(.2,1.4,.4,1)}
+.cy-wa:hover{transform:scale(1.1) rotate(-6deg)}
+.cy-wa .cy-watip{position:absolute;right:76px;top:50%;transform:translateY(-50%) translateX(8px);white-space:nowrap;background:#050505;color:#F3EFE9;font-size:13px;font-weight:700;letter-spacing:.06em;padding:10px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+.cy-wa:hover .cy-watip{opacity:1;transform:translateY(-50%) translateX(0)}
+@keyframes cy-wapulse{0%{box-shadow:0 14px 34px -10px rgba(0,0,0,.55),0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 14px 34px -10px rgba(0,0,0,.55),0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 14px 34px -10px rgba(0,0,0,.55),0 0 0 0 rgba(37,211,102,0)}}
+@media (max-width:640px){.cy-wa{right:16px;bottom:16px;width:58px;height:58px}}
+.cy-dsec{position:relative;isolation:isolate}
+.cy-ddeco{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.cy-floor{position:absolute;left:-60%;right:-60%;bottom:-1px;height:62%;background-image:linear-gradient(rgba(244,69,15,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(244,69,15,.55) 1px,transparent 1px);background-size:90px 90px;transform:perspective(420px) rotateX(72deg);transform-origin:50% 100%;-webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.35) 45%,transparent 85%);mask-image:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.35) 45%,transparent 85%);opacity:.38}
+.cy-horiz{position:absolute;left:10%;right:10%;bottom:30%;height:140px;background:radial-gradient(ellipse 50% 50% at 50% 100%,rgba(244,69,15,.28),rgba(244,69,15,0) 70%);filter:blur(6px)}
+.cy-st{position:absolute;left:0;right:0;top:0;bottom:-300px;will-change:transform;backface-visibility:hidden}
+.cy-st.l1{background-image:radial-gradient(rgba(255,190,160,.55) 1px,transparent 1.6px);background-size:70px 70px;animation:cy-drift 18s linear infinite;opacity:.55}
+.cy-st.l2{background-image:radial-gradient(rgba(244,69,15,.7) 1.5px,transparent 2.2px);background-size:150px 150px;background-position:40px 20px;animation:cy-drift2 12s linear infinite;opacity:.55}
+.cy-st.l3{background-image:radial-gradient(rgba(255,106,61,.9) 2px,transparent 3px);background-size:260px 260px;background-position:120px 90px;animation:cy-drift3 9s linear infinite;opacity:.5}
+.cy-ddeco{-webkit-mask-image:radial-gradient(ellipse 85% 80% at 50% 45%,rgba(0,0,0,.35) 30%,#000 100%);mask-image:radial-gradient(ellipse 85% 80% at 50% 45%,rgba(0,0,0,.35) 30%,#000 100%)}
+.cy-vig{position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at 50% 45%,transparent 55%,rgba(0,0,0,.55) 100%)}
+@keyframes cy-floor{to{background-position:0 90px}}
+@keyframes cy-drift{to{transform:translate3d(0,-280px,0)}}
+@keyframes cy-drift2{to{transform:translate3d(0,-300px,0)}}
+@keyframes cy-drift3{to{transform:translate3d(0,-260px,0)}}
+.cy-decosec{position:relative;overflow:hidden;isolation:isolate}
+.cy-decosec > *:not(.cy-deco){position:relative;z-index:1}
+.cy-deco{position:absolute;inset:0;pointer-events:none;z-index:0}
+.cy-tgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(244,69,15,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(244,69,15,.13) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 75% 70% at 50% 50%,transparent 45%,#000 100%);mask-image:radial-gradient(ellipse 75% 70% at 50% 50%,transparent 45%,#000 100%)}
+.cy-tglow{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(244,69,15,.16),rgba(244,69,15,0) 68%)}
+.cy-beam{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(244,69,15,.18) 20%,rgba(244,69,15,.18) 80%,transparent);overflow:hidden}
+.cy-beam::after{will-change:left;content:"";position:absolute;top:-1px;height:3px;width:180px;left:-200px;background:linear-gradient(90deg,transparent,#F4450F,transparent);filter:blur(.5px);animation:cy-scan 12s linear infinite}
+.cy-beam.b2::after{animation-duration:15s;animation-delay:-6s}
+.cy-vbeam{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(244,69,15,.18) 20%,rgba(244,69,15,.18) 80%,transparent);overflow:hidden}
+.cy-vbeam::after{content:"";position:absolute;left:-1px;width:3px;height:140px;top:-160px;background:linear-gradient(180deg,transparent,#F4450F,transparent);animation:cy-vscan 7s linear infinite}
+.cy-node{position:absolute;width:7px;height:7px;margin:-3px 0 0 -3px;border-radius:50%;background:#F4450F;box-shadow:0 0 0 4px rgba(244,69,15,.15);animation:cy-blink 3s ease-in-out infinite}
+@keyframes cy-scan{to{left:100%}}
+@keyframes cy-vscan{to{top:100%}}
+@keyframes cy-blink{0%,100%{opacity:.25}50%{opacity:1}}
+.cy-navp{display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;border:2px solid transparent;color:#F3EFE9;text-decoration:none;font-size:15px;font-weight:500;transition:border-color .25s ease,color .25s ease,box-shadow .25s ease,background .25s ease}
+.cy-navp:hover{border-color:rgba(244,69,15,.55);color:#FF6A3D}
+.cy-navp.on{border-color:#F4450F;color:#FF6A3D;font-weight:700;background:rgba(244,69,15,.08);box-shadow:0 0 22px -4px rgba(244,69,15,.6)}
+a{color:#C2370A}a:hover{color:#050505}
+.cy-nav a.cy-link{position:relative}
+.cy-nav a.cy-link::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#F4450F;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.cy-nav a.cy-link:hover{color:#FF6A3D}
+.cy-nav a.cy-link:hover::after{transform:scaleX(1)}
+.cy-btn{transition:transform .2s ease, box-shadow .25s ease, background .25s ease, color .25s ease;display:inline-flex;align-items:center;justify-content:center}
+.cy-btn:hover{transform:translateY(-3px);box-shadow:0 0 0 6px rgba(244,69,15,.22),0 18px 40px -12px rgba(244,69,15,.7)}
+.cy-btn:active{transform:scale(.96)}
+.cy-ghost:hover{background:#F3EFE9;color:#050505 !important}
+.cy-dark:hover{background:#1A1918 !important}
+@keyframes cy-rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.cy-in{animation:cy-rise .9s cubic-bezier(.2,.7,.2,1) both}
+.cy-d1{animation-delay:.1s}.cy-d2{animation-delay:.25s}.cy-d3{animation-delay:.4s}.cy-d4{animation-delay:.55s}
+@keyframes cy-flicker{0%,100%{color:#F4450F;text-shadow:0 0 24px rgba(244,69,15,.55)}50%{color:#FF6A3D;text-shadow:0 0 48px rgba(244,69,15,.9)}}
+.cy-ember{animation:cy-flicker 2.6s ease-in-out infinite}
+@keyframes cy-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes cy-marquee-rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.cy-track{display:flex;width:max-content;animation:cy-marquee 28s linear infinite}
+.cy-logos{display:flex;width:max-content;animation:cy-marquee 60s linear infinite}
+.cy-logos-rev{display:flex;width:max-content;animation:cy-marquee-rev 60s linear infinite}
+.cy-band:hover .cy-track,.cy-band:hover .cy-logos,.cy-band:hover .cy-logos-rev{animation-play-state:paused}
+.cy-cf-card{position:absolute;left:50%;top:46%;width:230px;height:230px;margin:-115px 0 0 -115px;border-radius:50%;overflow:hidden;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease,box-shadow .7s ease,filter .7s ease;-webkit-box-reflect:below 14px linear-gradient(transparent 62%,rgba(255,255,255,.22));will-change:transform}
+.cy-cf-ring{animation:cy-spin 26s linear infinite}
+.cy-cf-ring2{animation-duration:14s;animation-direction:reverse}
+@keyframes cy-spin{to{transform:rotate(360deg)}}
+.cy-cf-btn{transition:transform .25s ease, box-shadow .25s ease}
+.cy-cf-btn:hover{transform:scale(1.1);box-shadow:0 0 0 6px rgba(244,69,15,.25),0 0 40px rgba(244,69,15,.6)}
+.cy-logo{position:relative;display:block;flex:none;cursor:default;transition:transform .35s cubic-bezier(.2,1.4,.4,1)}
+.cy-logo img{transition:filter .35s ease, box-shadow .35s ease, opacity .35s ease;filter:grayscale(1);opacity:.6;image-rendering:auto}
+.cy-logo .cy-tip{position:absolute;left:50%;bottom:-12px;transform:translate(-50%,6px);opacity:0;transition:opacity .25s ease, transform .25s ease;white-space:nowrap;pointer-events:none}
+.cy-logo:hover{transform:translateY(-10px) scale(1.12);z-index:2}
+.cy-logo:hover img{filter:none;opacity:1;box-shadow:0 0 0 3px #F4450F,0 24px 50px -16px rgba(244,69,15,.8)}
+.cy-logo:hover .cy-tip{opacity:1;transform:translate(-50%,0)}
+@keyframes cy-ring{from{transform:scale(1);opacity:.8}to{transform:scale(2.6);opacity:0}}
+.cy-ring{position:absolute;inset:0;border-radius:999px;border:2px solid #F4450F;animation:cy-ring 1.6s ease-out infinite}
+.cy-ring2{animation-delay:.55s}
+@keyframes cy-bar{from{width:0}to{width:100%}}
+.cy-bar{animation:cy-bar 4s linear both}
+.cy-play{transition:transform .25s ease, box-shadow .25s ease}
+.cy-play:hover{transform:scale(1.1);box-shadow:0 0 0 10px rgba(244,69,15,.2)}
+.cy-card{transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, background .35s ease, color .35s ease, border-color .35s ease}
+.cy-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px -24px rgba(5,5,5,.35);border-color:#F4450F !important}
+.cy-reel{transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease}
+.cy-reel:hover{transform:perspective(900px) rotateY(-7deg) rotateX(3deg) translateY(-6px);box-shadow:24px 30px 60px -30px rgba(5,5,5,.6)}
+.cy-reel .cy-play{opacity:0;transform:scale(.6)}
+.cy-reel:hover .cy-play{opacity:1;transform:scale(1)}
+.cy-step{transition:background .25s ease, color .25s ease}
+.cy-step:hover{background:#F2D6CA}
+.cy-person .cy-photo{transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease}
+.cy-person .cy-photo img{transition:filter .4s ease, transform .6s ease;filter:grayscale(1)}
+.cy-person:hover .cy-photo{transform:translateY(-8px) rotate(-3deg);box-shadow:0 0 0 4px #F4450F,0 30px 60px -24px rgba(244,69,15,.8)}
+.cy-person:hover .cy-photo img{filter:none;transform:scale(1.08)}
+.cy-person .cy-name{transition:color .3s ease, transform .3s ease;display:inline-block}
+.cy-person:hover .cy-name{color:#C2370A;transform:translateX(6px)}
+.cy-shot{transition:transform .6s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease}
+.cy-shot img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.cy-shot:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 40px 80px -30px rgba(244,69,15,.6)}
+.cy-shot:hover img{transform:scale(1.08)}
+.cy-symbol{transition:transform .5s cubic-bezier(.2,1.6,.4,1)}
+.cy-symbol:hover{transform:scale(1.06) rotate(-6deg)}
+.cy-spark{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:999px;background:#F4450F;pointer-events:none;transition:transform .9s cubic-bezier(.1,.8,.3,1), opacity .9s ease}
+.cy-faq{transition:background .3s ease, border-color .3s ease}
+.cy-faq:hover{border-color:#F4450F !important}
+@keyframes cy-spin3d{from{transform:rotateY(0deg)}to{transform:rotateY(-360deg)}}
+.cy-spinner{position:absolute;inset:0;transform-style:preserve-3d;animation:cy-spin3d 36s linear infinite}
+.cy-stage:hover .cy-spinner{animation-play-state:paused}
+.cy-face{position:absolute;left:50%;top:50%;width:176px;height:312px;margin:-156px 0 0 -88px;transform-style:preserve-3d}
+.cy-face-in{display:block;width:100%;height:100%;border-radius:22px;overflow:hidden;border:2px solid rgba(243,239,233,.14);background:#1A1918;transition:transform .45s cubic-bezier(.2,1.3,.4,1), box-shadow .4s ease, border-color .3s ease;cursor:pointer;padding:0;position:relative}
+.cy-face-in:hover{transform:scale(1.12) translateZ(30px);border-color:#F4450F;box-shadow:0 0 0 3px #F4450F,0 0 60px 6px rgba(244,69,15,.6)}
+.cy-face-in .cy-lab{opacity:0;transform:translateY(8px);transition:all .3s ease}
+.cy-face-in:hover .cy-lab{opacity:1;transform:none}
+@keyframes cy-orbit{from{transform:rotateX(78deg) rotateZ(0deg)}to{transform:rotateX(78deg) rotateZ(360deg)}}
+.cy-orbit{position:absolute;left:50%;top:50%;width:680px;height:680px;margin:-340px 0 0 -340px;border-radius:999px;border:2px dashed rgba(244,69,15,.45);animation:cy-orbit 24s linear infinite;pointer-events:none}
+.cy-orbit2{width:520px;height:520px;margin:-260px 0 0 -260px;border:1px solid rgba(244,69,15,.25);animation-duration:16s;animation-direction:reverse}
+@keyframes cy-float{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(-420px);opacity:0}}
+.cy-ember-dot{position:absolute;bottom:0;width:6px;height:6px;border-radius:999px;background:#FF6A3D;box-shadow:0 0 12px 2px rgba(244,69,15,.8);animation:cy-float 6s linear infinite;pointer-events:none}
+@keyframes cy-fade{from{opacity:0}to{opacity:1}}
+.cy-overlay{animation:cy-fade .3s ease both}
+@keyframes cy-pop{from{opacity:0;transform:scale(.85) translateY(30px)}to{opacity:1;transform:none}}
+.cy-popin{animation:cy-pop .45s cubic-bezier(.2,1.4,.4,1) both}
+.cy-close{transition:transform .3s ease, background .3s ease}
+.cy-close:hover{transform:rotate(90deg);background:#F4450F !important}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div onMouseMove="{{ moveGlow }}" id="topo" style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #050505; background: #F3EFE9; width: 100%; position: relative">
+<div class="cy-intro" aria-hidden="true"><span class="cy-intro-ember"></span><img class="cy-intro-sym" src="/_blob/79550188d56f6652ba41b75b3704509a" alt=""><img class="cy-intro-logo" src="/_blob/652a83c33e31602de6c08236891203f2" alt=""></div>
+<a class="cy-wa" href="https://wa.me/5554994270505?text=Ol%C3%A1%2C%20Cynder!%20Vim%20pelo%20site%20e%20quero%20chamar%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar com a Cynder no WhatsApp"><span class="cy-watip">Fale com a gente</span><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.6 8.6 0 0 1-12.6 7.6L3.5 20.5l1.3-4.2a8.6 8.6 0 1 1 15.7-4.7z"></path><path d="M9.1 8.2c.2-.4.5-.4.8-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.7l-.5.6c-.1.2-.1.4 0 .5.6 1 1.4 1.8 2.4 2.3.2.1.4.1.5 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5v.4c0 .4-.2.8-.6 1-.6.3-1.3.4-2 .2-2.4-.7-4.3-2.6-5-5-.2-.7-.1-1.4.2-1.8z" fill="#FFFFFF" stroke="none"></path></svg></a>
+<a class="cy-top" href="#topo" aria-label="Voltar ao topo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F4450F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg></a>
+<div class="cy-cursor" aria-hidden="true"></div>
+
+<header style="background: #060505; border-bottom: 1px solid #1A1918; position: sticky; top: 0; z-index: 30">
+<div style="max-width: 1240px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#topo" aria-label="Voltar ao topo" style="display: flex; align-items: center"><img src="/_blob/19400092513bf2d17539bf1791fc37e4" alt="Cynder Filmes" style="height: 36px; width: auto; display: block"></a>
+<nav class="cy-nav" aria-label="Principal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<sc-for list="{{navItens}}" as="n" hint-placeholder-count="6">
+<a class="{{n.cls}}" href="{{n.href}}" onClick="{{ n.go }}">{{n.t}}</a>
+</sc-for>
+<a class="cy-btn" href="{{zap}}" target="_blank" rel="noopener" style="background: {{accent}}; color: #050505; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; padding: 14px 22px; border-radius: 999px">CHAMAR ORÇAMENTO</a>
+</nav>
+</div>
+</header>
+
+<section class="cy-dsec" onMouseMove="{{ onHeroMove }}" onMouseLeave="{{ onHeroLeave }}" onMouseUp="{{ endDrag }}" style="background: #060505; color: #F3EFE9; overflow: hidden; position: relative">
+<div class="cy-ddeco" aria-hidden="true"><div class="cy-st l1"></div><div class="cy-st l2"></div><div class="cy-st l3"></div><div class="cy-horiz"></div><div class="cy-floor"></div><div class="cy-vig"></div></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; {{heroGlow}}"></div>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 100%; pointer-events: none">
+<sc-for list="{{brasas}}" as="b" hint-placeholder-count="14">
+<span class="cy-ember-dot" style="left: {{b.x}}; animation-delay: {{b.d}}; animation-duration: {{b.t}}"></span>
+</sc-for>
+</div>
+<div style="max-width: 1320px; margin: 0 auto; padding: 72px 32px 88px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; position: relative">
+<div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 28px; min-width: 0; position: relative; z-index: 2">
+<div class="cy-in" style="display: inline-flex; align-self: flex-start; border: 2px solid {{accent}}; border-radius: 999px; padding: 8px 18px; font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: #FF6A3D">PRODUTORA AUDIOVISUAL ESTRATÉGICA</div>
+<h1 class="cy-in cy-d1" style="margin: 0; font-size: clamp(52px, 7.4vw, 112px); line-height: 0.92; font-weight: 900; letter-spacing: -0.045em">Vídeos que <span class="cy-ember" style="color: {{accent}}">ascendem</span> seu negócio</h1>
+<p class="cy-in cy-d2" style="margin: 0; font-size: 21px; line-height: 1.5; color: #C9C4BC; max-width: 520px">Histórias que conectam, engajam e geram resultados reais. Da ideia à publicação, a gente cuida de tudo.</p>
+<div class="cy-in cy-d3" style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 4px">
+<a class="cy-btn" href="{{zap}}" target="_blank" rel="noopener" style="background: {{accent}}; color: #050505; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.2em; padding: 20px 32px; border-radius: 999px; min-height: 56px; box-sizing: border-box">CHAMAR ORÇAMENTO →</a>
+<a class="cy-btn cy-ghost" href="Trabalhos.dc.html" style="border: 2px solid #F3EFE9; color: #F3EFE9; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.2em; padding: 18px 30px; border-radius: 999px; min-height: 56px; box-sizing: border-box">VER TRABALHOS</a>
+</div>
+<div class="cy-in cy-d4" style="display: flex; align-items: center; gap: 12px; font-size: 13px; color: #A39E97; letter-spacing: 0.06em">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6A3D" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 12h8M5 9l-3 3 3 3M19 9l3 3-3 3"></path></svg>
+Arraste para girar · clique em um vídeo para assistir
+</div>
+</div>
+
+<div class="cy-in cy-d2 cy-stage" onMouseDown="{{ startDrag }}" style="flex: 1 1 560px; height: 620px; position: relative; perspective: 1100px; perspective-origin: 50% 40%; cursor: {{cursor}}; user-select: none; min-width: 0">
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 560px; height: 220px; margin: 150px 0 0 -280px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(244,69,15,0.45), rgba(244,69,15,0) 70%); filter: blur(10px); pointer-events: none"></div>
+<div style="position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .25s ease-out; transform: {{stageTransform}}">
+<div class="cy-orbit" aria-hidden="true"></div>
+<div class="cy-orbit cy-orbit2" aria-hidden="true"></div>
+<div class="cy-spinner">
+<sc-for list="{{anel}}" as="v" hint-placeholder-count="7">
+<div class="cy-face" style="transform: rotateY({{v.ang}}) translateZ(330px)">
+<button type="button" class="cy-face-in" aria-label="Assistir: {{v.t}}" onClick="{{ v.open }}">
+<video data-src="{{v.loop}}" poster="{{v.poster}}" preload="none" muted="" loop="" playsinline="" style="width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none"></video>
+<span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,5,5,0) 55%, rgba(6,5,5,0.85) 100%); pointer-events: none"></span>
+<span class="cy-lab" style="position: absolute; left: 14px; right: 14px; bottom: 14px; text-align: left; color: #F3EFE9; display: flex; flex-direction: column; gap: 2px; pointer-events: none">
+<span style="font-size: 10px; font-weight: 700; letter-spacing: 0.24em; color: #FF6A3D">{{v.cat}}</span>
+<span style="font-size: 15px; font-weight: 800">{{v.t}}</span>
+</span>
+</button>
+</div>
+</sc-for>
+</div>
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 120px; height: 120px; margin: -60px 0 0 -60px; display: flex; align-items: center; justify-content: center; transform: translateZ(0); pointer-events: none">
+<img src="/_blob/9c5d5ebdec975bf20729cc5cf735c43a" alt="" style="width: 84px; height: auto; filter: drop-shadow(0 0 24px rgba(244,69,15,0.9))">
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cy-dsec" style="background: #060505; padding: 0 32px 104px">
+<div class="cy-ddeco" aria-hidden="true"><div class="cy-st l1"></div><div class="cy-st l2"></div><div class="cy-st l3"></div><div class="cy-vig"></div></div>
+<div class="cy-in" style="max-width: 1240px; margin: 0 auto; border-radius: 28px; overflow: hidden; background: #1A1918; border: 1px solid {{reelBorder}}; aspect-ratio: 16 / 9; position: relative; transition: border-color .4s ease, box-shadow .4s ease; box-shadow: {{reelShadow}}">
+<video data-src="/_blob/98a751ee550880556c8cb42877a132bd" poster="/_blob/b2d746260c636e8bbd334187583a541c" preload="none" muted="" loop="" playsinline="" onCanPlay="{{ grabReel }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: filter .6s ease; {{reelFilter}}"></video>
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: {{reelVeil}}; transition: background .6s ease">
+<sc-if value="{{ paused }}" hint-placeholder-val="{{ true }}">
+<div style="font-size: clamp(36px, 6vw, 88px); font-weight: 900; letter-spacing: -0.04em; color: #F3EFE9; text-align: center; line-height: 0.95">SHOWREEL <span style="color: {{accent}}">2026</span></div>
+<button type="button" class="cy-play" aria-label="Assistir showreel" onClick="{{ togglePlay }}" style="width: 96px; height: 96px; border-radius: 999px; background: {{accent}}; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l11 7-11 7z"></path></svg>
+</button>
+<div style="font-size: 13px; font-weight: 700; letter-spacing: 0.32em; color: #F3EFE9">CLIQUE PARA ASSISTIR</div>
+</sc-if>
+<sc-if value="{{ playing }}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-label="Pausar showreel" onClick="{{ togglePlay }}" style="position: absolute; right: 24px; bottom: 24px; width: 60px; height: 60px; border-radius: 999px; background: {{accent}}; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<span class="cy-ring" aria-hidden="true"></span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="#050505" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
+</button>
+</sc-if>
+</div>
+</div>
+</section>
+
+<section class="cy-band" aria-label="O que entregamos" style="background: {{accent}}; color: #050505; overflow: hidden">
+<div class="cy-track" style="padding: 26px 0; font-size: 15px; font-weight: 800; letter-spacing: 0.24em">
+<sc-for list="{{faixa}}" as="t" hint-placeholder-count="16">
+<span style="display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; white-space: nowrap">{{t}}<svg width="14" height="14" viewBox="0 0 24 24" fill="#050505" aria-hidden="true"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"></path></svg></span>
+</sc-for>
+</div>
+</section>
+
+<section class="cy-decosec" id="servicos" style="background: #F3EFE9">
+<div class="cy-deco" aria-hidden="true"><div class="cy-tgrid"></div><div class="cy-tglow" style="right: -260px; top: -260px"></div><div class="cy-beam" style="top: 0"></div></div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 640px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: #C2370A">O QUE A GENTE FAZ</div>
+<h2 style="margin: 0; font-size: clamp(36px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.03em"><span style="display: block">Você aparece</span><span style="display: block">A gente cuida do <span style="color: {{accent}}">resto</span></span></h2>
+</div>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #4A4744; max-width: 420px">Clique em um serviço para ver tudo o que está incluso.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start">
+<sc-for list="{{servicos}}" as="s" hint-placeholder-count="6">
+<button type="button" class="cy-card" aria-expanded="{{s.expanded}}" onClick="{{ s.pick }}" style="font-family: inherit; text-align: left; cursor: pointer; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px; min-height: 240px; box-sizing: border-box; width: 100%; {{s.cardStyle}}">
+<span style="display: flex; align-items: center; justify-content: space-between; width: 100%">
+<span style="width: 56px; height: 56px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; box-sizing: border-box; transition: all .35s ease; {{s.badgeStyle}}">{{s.n}}</span>
+<span aria-hidden="true" style="font-size: 28px; font-weight: 400; transition: transform .35s ease; {{s.plusStyle}}">+</span>
+</span>
+<span style="margin-top: 8px; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">{{s.t}}</span>
+<span style="font-size: 16px; line-height: 1.55; {{s.textStyle}}">{{s.d}}</span>
+<sc-if value="{{ s.ativo }}" hint-placeholder-val="{{ false }}">
+<span class="cy-in" style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #2A2826; padding-top: 16px; margin-top: 4px">
+<sc-for list="{{s.inclui}}" as="i" hint-placeholder-count="3">
+<span style="display: flex; gap: 10px; align-items: center; font-size: 15px; color: #F3EFE9"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A3D" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>{{i}}</span>
+</sc-for>
+</span>
+</sc-if>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section class="cy-dsec cy-band" aria-label="Empresas atendidas" style="background: #060505; color: #F3EFE9; overflow: hidden">
+<div class="cy-ddeco" aria-hidden="true"><div class="cy-st l1"></div><div class="cy-st l2"></div><div class="cy-st l3"></div><div class="cy-vig"></div></div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 32px 48px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: #FF6A3D">CASES DE SUCESSO</div>
+<h2 style="margin: 0; font-size: clamp(36px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.03em"><span style="color: {{accent}}">+100 marcas</span> já ascenderam com a gente</h2>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #A39E97; max-width: 380px">Arraste para o lado ou use as setas para ver cada marca de perto.</p>
+</div>
+<div style="padding: 8px 0 104px">
+<div class="cy-cf-stage" onMouseDown="{{ lDown }}" onMouseMove="{{ lMove }}" onMouseUp="{{ lUp }}" onMouseLeave="{{ lLeave }}" onTouchStart="{{ lDown }}" onTouchMove="{{ lMove }}" onTouchEnd="{{ lUp }}" style="position: relative; height: 500px; perspective: 1400px; perspective-origin: 50% 35%; cursor: {{lCursor}}; user-select: none; touch-action: pan-y">
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 46%; width: 760px; height: 760px; margin: -380px 0 0 -380px; border-radius: 999px; background: radial-gradient(circle, rgba(244,69,15,0.55) 0%, rgba(244,69,15,0.18) 35%, rgba(244,69,15,0) 68%); filter: blur(6px); pointer-events: none"></div>
+<div aria-hidden="true" class="cy-cf-ring" style="position: absolute; left: 50%; top: 46%; width: 560px; height: 560px; margin: -280px 0 0 -280px; border-radius: 999px; border: 1px dashed rgba(255,106,61,0.45); pointer-events: none"></div>
+<div aria-hidden="true" class="cy-cf-ring cy-cf-ring2" style="position: absolute; left: 50%; top: 46%; width: 400px; height: 400px; margin: -200px 0 0 -200px; border-radius: 999px; border: 2px solid rgba(244,69,15,0.35); pointer-events: none"></div>
+<img aria-hidden="true" src="/_blob/9c5d5ebdec975bf20729cc5cf735c43a" alt="" style="position: absolute; left: 50%; top: 46%; width: 420px; margin: -210px 0 0 -210px; opacity: 0.07; pointer-events: none">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 190px; background: linear-gradient(180deg, rgba(6,5,5,0) 0%, rgba(26,12,6,0.9) 40%, #060505 100%); transform: perspective(600px) rotateX(55deg); transform-origin: bottom; border-top: 1px solid rgba(244,69,15,0.35); pointer-events: none"></div>
+<div style="position: absolute; inset: 0; transform-style: preserve-3d">
+<sc-for list="{{cf}}" as="l" hint-placeholder-count="9">
+<div class="cy-cf-card" onClick="{{ l.go }}" style="{{l.style}}">
+<img src="{{l.img}}" alt="{{l.nome}}" draggable="false" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; pointer-events: none">
+</div>
+</sc-for>
+</div>
+</div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 8px 32px 0; display: flex; align-items: center; justify-content: center; gap: 28px">
+<button type="button" class="cy-cf-btn" aria-label="Marca anterior" onClick="{{ lPrev }}" style="width: 60px; height: 60px; border-radius: 999px; border: 2px solid #F4450F; background: transparent; color: #F3EFE9; font-size: 22px; cursor: pointer">←</button>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 300px">
+<div style="font-size: 26px; font-weight: 800; letter-spacing: -0.01em; text-align: center">{{lNome}}</div>
+<div style="font-size: 12px; font-weight: 700; letter-spacing: 0.3em; color: #FF6A3D">{{lConta}}</div>
+</div>
+<button type="button" class="cy-cf-btn" aria-label="Próxima marca" onClick="{{ lNext }}" style="width: 60px; height: 60px; border-radius: 999px; border: 2px solid #F4450F; background: #F4450F; color: #050505; font-size: 22px; cursor: pointer">→</button>
+</div>
+</div>
+</section>
+
+<section class="cy-decosec" id="processo" style="background: #FFFFFF; border-bottom: 1px solid #DCD6CC">
+<div class="cy-deco" aria-hidden="true"><div class="cy-tgrid"></div><div class="cy-tglow" style="left: -260px; bottom: -260px"></div><div class="cy-beam b2" style="bottom: 0"></div></div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: #C2370A">COMO FUNCIONA</div>
+<h2 style="margin: 0; font-size: clamp(36px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.03em">Briefing, roteiro &amp; <span class="cy-ember" style="color: {{accent}}">REC</span></h2>
+</div>
+<div role="tablist" aria-label="Etapas" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+<sc-for list="{{etapas}}" as="e" hint-placeholder-count="4">
+<button type="button" role="tab" class="cy-step" aria-selected="{{e.selected}}" onClick="{{ e.pick }}" style="font-family: inherit; text-align: left; cursor: pointer; border: 0; border-radius: 18px; padding: 20px 22px 0; display: flex; flex-direction: column; gap: 6px; overflow: hidden; min-height: 92px; {{e.tabStyle}}">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; {{e.numStyle}}">ETAPA {{e.n}}</span>
+<span style="font-size: 22px; font-weight: 700">{{e.t}}</span>
+<span style="display: block; height: 4px; margin: 12px -22px 0; background: rgba(5,5,5,0.08)">
+<sc-if value="{{ e.ativo }}" hint-placeholder-val="{{ false }}"><span class="cy-bar" style="display: block; height: 100%; background: {{accent}}"></span></sc-if>
+</span>
+</button>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: center; background: #060505; color: #F3EFE9; border-radius: 28px; padding: 56px; box-sizing: border-box">
+<div class="cy-ember" aria-hidden="true" style="font-size: clamp(120px, 16vw, 220px); line-height: 0.8; font-weight: 800; letter-spacing: -0.05em; color: {{accent}}">{{etapaAtual.n}}</div>
+<div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-size: 40px; font-weight: 800; letter-spacing: -0.02em">{{etapaAtual.t}}</h3>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #C9C4BC; max-width: 560px">{{etapaAtual.d}}</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cy-decosec" style="background: #F3EFE9">
+<div class="cy-deco" aria-hidden="true"><div class="cy-tgrid"></div><div class="cy-tglow" style="right: -260px; top: -260px"></div><div class="cy-beam" style="top: 0"></div></div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: #C2370A">TRABALHOS</div>
+<h2 style="margin: 0; font-size: clamp(36px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.03em">Os 3 primeiros segundos <span style="color: {{accent}}">decidem tudo</span></h2>
+</div>
+<a class="cy-btn" href="Trabalhos.dc.html" style="color: #050505; border: 2px solid #050505; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.24em; padding: 14px 22px; border-radius: 999px">VER TODOS →</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+<sc-for list="{{reels}}" as="r" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<button type="button" class="cy-reel" aria-label="Assistir: {{r.t}}" onClick="{{ r.open }}" style="font-family: inherit; cursor: pointer; border: 0; aspect-ratio: 9 / 16; border-radius: 28px; background: #060505; padding: 0; position: relative; overflow: hidden">
+<video data-src="{{r.loop}}" poster="{{r.poster}}" preload="none" muted="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none"></video>
+<span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,5,5,0.35) 0%, rgba(6,5,5,0) 30%, rgba(6,5,5,0) 60%, rgba(6,5,5,0.75) 100%)"></span>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(6,5,5,0.6); color: #F3EFE9; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; padding: 6px 12px; border-radius: 999px">{{r.cat}}</span>
+<span class="cy-play" style="position: absolute; left: 50%; top: 50%; margin: -30px 0 0 -30px; width: 60px; height: 60px; border-radius: 999px; background: {{accent}}; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l11 7-11 7z"></path></svg></span>
+<span style="position: absolute; left: 18px; bottom: 16px; font-size: 13px; color: #F3EFE9">@cynderfilmes</span>
+</button>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px">
+<span style="font-size: 18px; font-weight: 700">{{r.t}}</span>
+<span style="font-size: 14px; color: #6B6660">{{r.cat2}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section class="cy-dsec" aria-labelledby="regiao-titulo" style="background: #060505; color: #F3EFE9">
+<div class="cy-ddeco" aria-hidden="true"><div class="cy-st l1"></div><div class="cy-st l2"></div><div class="cy-st l3"></div><div class="cy-vig"></div></div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 20px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: #FF6A3D">ONDE ATENDEMOS</div>
+<h2 id="regiao-titulo" style="margin: 0; font-size: clamp(36px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.03em">De Nova Petrópolis para toda a <span style="color: {{accent}}">Serra Gaúcha</span></h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C9C4BC; max-width: 480px">Nossa base fica em Nova Petrópolis e vamos até você para gravar empresas, eventos e casamentos na região. Está em outra cidade? Chama a gente que a gente vê junto. Toque numa cidade para abrir no Google Maps ou no Waze</p>
+
+</div>
+<div style="flex: 1 1 460px; min-width: 0">
+<div style="position: relative; border-radius: 28px; border: 1px solid rgba(244,69,15,0.35); background: radial-gradient(ellipse at 30% 60%, rgba(244,69,15,0.16), rgba(6,5,5,0) 60%), #0D0C0C; overflow: hidden">
+<svg viewBox="0 0 600 540" role="img" aria-label="Nova Petrópolis no centro, cercada pelas cidades da região que atendemos" style="display: block; width: 100%; height: auto">
+<defs><pattern id="mapgrid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="rgba(244,69,15,0.10)" stroke-width="1"></path></pattern>
+<radialGradient id="mapcore"><stop offset="0" stop-color="rgba(244,69,15,0.45)"></stop><stop offset="1" stop-color="rgba(244,69,15,0)"></stop></radialGradient></defs>
+<image href="/_blob/e38e3665a90129770e5cfb5510f42abf" x="0" y="0" width="600" height="540" preserveAspectRatio="xMidYMid slice"></image><rect width="600" height="540" fill="url(#mapgrid)" opacity="0.35"></rect>
+<circle cx="300" cy="270" r="190" fill="url(#mapcore)"></circle>
+<ellipse cx="300" cy="270" rx="150" ry="118" fill="none" stroke="rgba(244,69,15,0.45)" stroke-width="1.2" stroke-dasharray="2 8" class="cy-orbit"></ellipse>
+<ellipse cx="300" cy="270" rx="236" ry="222" fill="none" stroke="rgba(244,69,15,0.3)" stroke-width="1.2" stroke-dasharray="2 10" class="cy-orbit o2"></ellipse>
+<line x1="300" y1="270" x2="300" y2="152" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="430" y2="211" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="430" y2="329" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="300" y2="388" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="170" y2="329" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="170" y2="211" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="381" y2="61" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="504" y2="159" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="532" y2="309" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="452" y2="440" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="300" y2="492" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="148" y2="440" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="68" y2="309" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="96" y2="159" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line><line x1="300" y1="270" x2="219" y2="61" stroke="rgba(244,69,15,0.35)" stroke-width="1" stroke-dasharray="4 6" class="cy-mapline"></line>
+<circle cx="300" cy="270" r="60" fill="none" stroke="#F4450F" stroke-width="1.5" class="cy-radar"></circle><circle cx="300" cy="270" r="60" fill="none" stroke="#F4450F" stroke-width="1.5" class="cy-radar r2"></circle>
+</svg>
+<sc-for list="{{cidades}}" as="c" hint-placeholder-count="5">
+<div class="cy-pinwrap" style="left: {{c.x}}; top: {{c.y}}; z-index: {{c.z}}">
+<button type="button" class="{{c.cls}}" aria-expanded="{{c.aberto}}" onClick="{{ c.toggle }}"><span class="cy-pdot" aria-hidden="true"></span>{{c.nome}}</button>
+<sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}">
+<div class="cy-pop2" role="group" aria-label="Abrir {{c.nome}} no mapa">
+<a href="{{c.gmaps}}" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Google Maps</a>
+<a href="{{c.waze}}" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h4l2-5 6 12 2-7h4"></path></svg>Waze</a>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cy-decosec" aria-labelledby="insta-titulo" style="background: #FFFFFF; border-top: 1px solid #DCD6CC">
+<div class="cy-deco" aria-hidden="true"><div class="cy-tgrid"></div><div class="cy-tglow" style="right: -260px; top: -260px"></div><div class="cy-beam" style="top: 0"></div></div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 104px 32px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 22px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: #C2370A">INSTAGRAM</div>
+<h2 id="insta-titulo" style="margin: 0; font-size: clamp(36px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.03em">Acompanhe a gente no <span style="color: {{accent}}">@cynderfilmes</span></h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4A4744; max-width: 460px">Dicas de vídeo e marketing, bastidores das gravações e os trabalhos mais recentes da equipe, toda semana</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a class="cy-btn" href="https://instagram.com/cynderfilmes" target="_blank" rel="noopener" style="background: linear-gradient(90deg, #F4450F, #D6249F); color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 800; letter-spacing: 0.2em; padding: 18px 26px; border-radius: 999px; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"></circle></svg>SEGUIR NO INSTAGRAM</a>
+</div>
+</div>
+<div class="ig-stage" style="flex: 1 1 420px; min-width: 0">
+<a class="ig-phone" href="https://instagram.com/cynderfilmes" target="_blank" rel="noopener" aria-label="Abrir o perfil @cynderfilmes no Instagram">
+<span class="ig-badge b1" aria-hidden="true"><strong>7.159</strong> seguidores</span>
+<span class="ig-badge b2" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F4450F" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.3C1.2 8.4 3.3 5 6.8 5c2 0 3.4 1.1 5.2 3 1.8-1.9 3.2-3 5.2-3 3.5 0 5.6 3.4 4.3 6.7C19.5 16.4 12 21 12 21z"></path></svg>Novo post</span>
+<span class="ig-badge b3" aria-hidden="true"><strong>313</strong> posts</span>
+<span class="ig-screen">
+<span class="ig-scroll">
+<span class="ig-top"><span>cynderfilmes</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></span>
+<span class="ig-head"><span class="ig-av"><img src="/_blob/19400092513bf2d17539bf1791fc37e4" alt=""></span>
+<span class="ig-stats"><span><b>313</b>posts</span><span><b>7.159</b>seguidores</span><span><b>4.024</b>seguindo</span></span></span>
+<span class="ig-bio"><b>Cynder Filmes</b>Transformamos a presença digital de empresas com vídeos estratégicos e anúncios online<br>Cobertura de eventos e casamentos<br>Nova Petrópolis | RS<span class="ig-link">wa.me/5554994270505</span></span>
+<span class="ig-btns"><span class="ig-follow">Seguir</span><span class="ig-msg">Mensagem</span><span class="ig-msg">Contato</span></span>
+<span class="ig-hls"><span class="ig-hl"><span class="ig-hlc"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span><span class="ig-hlt">EVENTOS</span></span><span class="ig-hl"><span class="ig-hlc"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span><span class="ig-hlt">TRABALHOS</span></span><span class="ig-hl"><span class="ig-hlc"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span><span class="ig-hlt">MAKING OF</span></span><span class="ig-hl"><span class="ig-hlc"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span><span class="ig-hlt">CASAMENTOS</span></span></span>
+<span class="ig-tabs"><span class="on"></span><span></span><span></span></span>
+<span class="ig-grid"><img src="/_blob/e00a55eb3dcb18067f34556b5498cb0f" alt="Post da Cynder Filmes no Instagram" loading="lazy"><img src="/_blob/468c74b104041a26078a761943657c3c" alt="Post da Cynder Filmes no Instagram" loading="lazy"><img src="/_blob/2bc1a958ff22d023fa766cd777a49d3d" alt="Post da Cynder Filmes no Instagram" loading="lazy"><img src="/_blob/2940f85bd1108068785a52bbb4c6e262" alt="Post da Cynder Filmes no Instagram" loading="lazy"><img src="/_blob/09cabfea7b3f1a9b4fa5b611f213c6b4" alt="Post da Cynder Filmes no Instagram" loading="lazy"><img src="/_blob/d7e553c2a8b728852a8ae2110038e19a" alt="Post da Cynder Filmes no Instagram" loading="lazy"><img src="/_blob/1326ea0884b8acf22206e76b92e1d3d8" alt="Post da Cynder Filmes no Instagram" loading="lazy"><img src="/_blob/da7e014273308f4cd8389a27596fa244" alt="Post da Cynder Filmes no Instagram" loading="lazy"><img src="/_blob/311e93288e19112442e1dcd38425b79f" alt="Post da Cynder Filmes no Instagram" loading="lazy"></span>
+</span>
+</span>
+</a>
+</div>
+</div>
+</section>
+
+<section class="cy-decosec" style="background: #F3EFE9; border-top: 1px solid #DCD6CC">
+<div class="cy-deco" aria-hidden="true"><div class="cy-tgrid"></div><div class="cy-tglow" style="left: -260px; bottom: -260px"></div><div class="cy-beam b2" style="bottom: 0"></div></div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 120px 32px; display: flex; flex-wrap: wrap; gap: 56px">
+<div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: #C2370A">DÚVIDAS</div>
+<h2 style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1; font-weight: 800; letter-spacing: -0.03em">Perguntas <span style="color: {{accent}}">frequentes</span></h2>
+</div>
+<div style="flex: 2 1 560px; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{faq}}" as="q" hint-placeholder-count="4">
+<div class="cy-faq" style="border-radius: 22px; border: 1px solid #DCD6CC; overflow: hidden; {{q.boxStyle}}">
+<button type="button" aria-expanded="{{q.expanded}}" onClick="{{ q.toggle }}" style="font-family: inherit; width: 100%; text-align: left; cursor: pointer; background: transparent; border: 0; padding: 24px 26px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 700; {{q.titleStyle}}">{{q.p}}<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 400; transition: transform .35s ease, background .3s ease; {{q.iconStyle}}">+</span></button>
+<sc-if value="{{ q.on }}" hint-placeholder-val="{{ false }}">
+<p class="cy-in" style="margin: 0; padding: 0 26px 26px; font-size: 17px; line-height: 1.6; color: #C9C4BC">{{q.r}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background: {{accent}}; color: #050505; overflow: hidden">
+<div style="max-width: 1240px; margin: 0 auto; padding: 112px 32px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-size: clamp(40px, 6vw, 88px); line-height: 0.95; font-weight: 800; letter-spacing: -0.035em; max-width: 820px">Sua empresa alcançando mais longe</h2>
+<a class="cy-btn cy-dark" href="{{zap}}" target="_blank" rel="noopener" style="align-self: flex-start; background: #050505; color: #F3EFE9; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.2em; padding: 22px 34px; border-radius: 999px">CHAMAR ORÇAMENTO →</a>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 16px">
+<button type="button" class="cy-symbol" aria-label="Acender a chama" onClick="{{ acender }}" style="position: relative; width: 200px; height: 200px; border-radius: 999px; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .5s ease, box-shadow .5s ease; {{chamaStyle}}">
+<img src="/_blob/9c5d5ebdec975bf20729cc5cf735c43a" alt="" style="width: 104px; height: auto; transition: filter .5s ease; {{chamaImg}}">
+<sc-for list="{{faiscas}}" as="f" hint-placeholder-count="0">
+<span class="cy-spark" aria-hidden="true" style="display: block; {{f.style}}"></span>
+</sc-for>
+</button>
+<div style="font-size: 12px; font-weight: 700; letter-spacing: 0.32em">{{chamaLabel}}</div>
+<sc-if value="{{ lit }}" hint-placeholder-val="{{ false }}">
+<a class="cy-btn cy-dark cy-in" href="Contato.dc.html" style="background: #050505; color: #F3EFE9; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; padding: 16px 26px; border-radius: 999px; box-shadow: 0 0 40px rgba(5,5,5,0.35)">IR PARA O CONTATO →</a>
+</sc-if>
+</div>
+</div>
+</section>
+
+<footer style="background: #060505; color: #C9C4BC">
+<div style="max-width: 1240px; margin: 0 auto; padding: 64px 32px 40px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 360px">
+<a href="Main.dc.html" aria-label="Voltar para a home" style="display: inline-flex; align-self: flex-start"><img src="/_blob/19400092513bf2d17539bf1791fc37e4" alt="Cynder Filmes" style="height: 40px; width: auto; align-self: flex-start"></a>
+<p style="margin: 0; font-size: 15px; line-height: 1.55">Produtora audiovisual estratégica. Vídeos para empresas, eventos e casamentos.</p>
+</div>
+<div class="cy-nav" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; align-items: flex-start">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.32em; color: #A39E97">CONTATO</div>
+<a class="cy-link" href="{{zap}}" target="_blank" rel="noopener" style="color: #F3EFE9; text-decoration: none">+55 54 99427-0505</a>
+<a class="cy-link" href="mailto:cynderfilmes@gmail.com" style="color: #F3EFE9; text-decoration: none">cynderfilmes@gmail.com</a>
+<a class="cy-link" href="https://instagram.com/cynderfilmes" style="color: #FF6A3D; text-decoration: none">@cynderfilmes</a>
+</div>
+<div class="cy-nav" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; align-items: flex-start">
+<div style="font-size: 12px; font-weight: 500; letter-spacing: 0.32em; color: #A39E97">NAVEGUE</div>
+<a class="cy-link" href="#servicos" style="color: #F3EFE9; text-decoration: none">Serviços</a>
+<a class="cy-link" href="Trabalhos.dc.html" style="color: #F3EFE9; text-decoration: none">Trabalhos</a>
+<a class="cy-link" href="Casamentos.dc.html" style="color: #F3EFE9; text-decoration: none">Casamentos</a>
+<a class="cy-link" href="Sobre.dc.html" style="color: #F3EFE9; text-decoration: none">Sobre</a>
+<a class="cy-link" href="Contato.dc.html" style="color: #F3EFE9; text-decoration: none">Contato</a>
+</div>
+</div>
+<div style="border-top: 1px solid #1A1918; padding-top: 24px; font-size: 13px; color: #A39E97; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between"><span>© 2026 Cynder Filmes · CNPJ 60.905.710/0001-92 · <a href="Privacidade.dc.html" style="color: #A39E97; text-decoration: underline">Política de privacidade</a></span><a class="cy-gmb" href="https://share.google/uXz5HPZhpz8L1qirc" target="_blank" rel="noopener"><span aria-hidden="true" style="color: #FBBC05; letter-spacing: 1px">★★★★★</span> Avalie a Cynder no Google</a></div>
+</div>
+</footer>
+
+<sc-if value="{{ aberto }}" hint-placeholder-val="{{ false }}">
+<div class="cy-overlay" role="dialog" aria-modal="true" aria-label="Player de vídeo" style="position: fixed; inset: 0; z-index: 60; background: rgba(6,5,5,0.92); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box">
+<button type="button" aria-label="Fechar" onClick="{{ fechar }}" style="position: absolute; inset: 0; background: transparent; border: 0; cursor: pointer"></button>
+<div class="cy-popin" style="position: relative; display: flex; flex-wrap: wrap; gap: 36px; align-items: center; justify-content: center">
+<video src="{{atual.src}}" poster="{{atual.poster}}" controls="" autoplay="" playsinline="" style="height: min(80vh, 760px); aspect-ratio: 9 / 16; border-radius: 28px; background: #050505; border: 1px solid #F4450F; box-shadow: 0 0 0 6px rgba(244,69,15,0.18), 0 40px 140px -30px rgba(244,69,15,0.8)"></video>
+<div style="display: flex; flex-direction: column; gap: 14px; color: #F3EFE9; max-width: 300px">
+<span style="align-self: flex-start; border: 2px solid #F4450F; color: #FF6A3D; font-size: 12px; font-weight: 500; letter-spacing: 0.28em; padding: 6px 14px; border-radius: 999px">{{atual.cat}}</span>
+<h2 style="margin: 0; font-size: 38px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">{{atual.t}}</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #C9C4BC">{{atual.d}}</p>
+<div style="display: flex; gap: 12px; margin-top: 6px">
+<button type="button" class="cy-btn" onClick="{{ anterior }}" aria-label="Vídeo anterior" style="font-family: inherit; cursor: pointer; width: 56px; height: 56px; border-radius: 999px; border: 2px solid #F3EFE9; background: transparent; color: #F3EFE9; font-size: 20px">←</button>
+<button type="button" class="cy-btn" onClick="{{ proximo }}" aria-label="Próximo vídeo" style="font-family: inherit; cursor: pointer; width: 56px; height: 56px; border-radius: 999px; border: 0; background: #F4450F; color: #050505; font-size: 20px">→</button>
+</div>
+</div>
+<button type="button" class="cy-close" aria-label="Fechar" onClick="{{ fechar }}" style="position: absolute; top: -14px; right: -14px; width: 52px; height: 52px; border-radius: 999px; border: 0; background: #F3EFE9; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+</button>
+</div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#F4450F","options":["#F4450F","#F77A05","#050505"]},"$preview":{"width":1440,"height":7400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mx: 50, my: 40, hover: false, playing: false, servico: -1, etapa: 0, auto: true, lit: false, faiscas: [], disparos: 0, faq: 0, rot: 0, drag: false, lastX: 0, moved: 0, aberto: -1, cidade: '', nav: 'Início', lc: 0, ldrag: false, lx: 0, lacc: 0, lmoved: 0, lhover: false };
+  }
+  componentDidMount() {
+    setTimeout(() => this.lazyScan(), 300);
+    try { const h = (window.location.hash || '').slice(1); if (h) { const el = document.getElementById(h); if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 300); } } catch (e) {}
+    this.timer = setInterval(() => {
+      if (this.state.auto) this.setState({ etapa: (this.state.etapa + 1) % 4 });
+    }, 4000);
+    this.ltimer = setInterval(() => {
+      if (!this.state.lhover && !this.state.ldrag) this.setState({ lc: this.state.lc + 1 });
+    }, 2600);
+  }
+  lazyScan() {
+    try {
+      if (!this._io && typeof IntersectionObserver !== 'undefined') {
+        this._io = new IntersectionObserver((ents) => {
+          ents.forEach((en) => {
+            const v = en.target;
+            if (en.isIntersecting) {
+              if (!v.getAttribute('src') && v.dataset.src) v.src = v.dataset.src;
+              v.muted = true;
+              const p = v.play(); if (p && p.catch) p.catch(() => {});
+            } else { try { v.pause(); } catch (e) {} }
+          });
+        }, { rootMargin: '250px 0px' });
+      }
+      document.querySelectorAll('video[data-src]').forEach((v) => {
+        if (v.dataset.io) return;
+        v.dataset.io = '1';
+        if (this._io) this._io.observe(v); else { v.src = v.dataset.src; }
+      });
+    } catch (e) {}
+  }
+  componentDidUpdate() {
+    if (this._scanT) return;
+    this._scanT = setTimeout(() => { this._scanT = null; this.lazyScan(); }, 200);
+  }
+  componentWillUnmount() {
+    try { if (this._io) this._io.disconnect(); } catch (e) {}
+    clearInterval(this.timer); clearInterval(this.ltimer);
+    clearTimeout(this.t1); clearTimeout(this.t2);
+  }
+  acender() {
+    const n = 16;
+    const base = Date.now();
+    const sparks = [];
+    for (let i = 0; i < n; i++) {
+      const ang = (Math.PI * 2 * i) / n + Math.random() * 0.4;
+      const dist = 110 + Math.random() * 90;
+      const size = 0.5 + Math.random() * 0.9;
+      sparks.push({ id: base + i, dx: Math.cos(ang) * dist, dy: Math.sin(ang) * dist, size: size, fly: false });
+    }
+    this.setState({ faiscas: sparks, lit: true, disparos: this.state.disparos + 1 });
+    clearTimeout(this.t1); clearTimeout(this.t2);
+    this.t1 = setTimeout(() => {
+      this.setState({ faiscas: this.state.faiscas.map((s) => ({ ...s, fly: true })) });
+    }, 30);
+    this.t2 = setTimeout(() => this.setState({ faiscas: [] }), 1000);
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#F4450F';
+    const st = this.state;
+    const B = '/_blob/';
+    const videos = [
+      { t: 'Casamento Ana & Lorenzo', cat: 'CASAMENTO', d: 'Filme do casamento ao ar livre, da cerimônia à festa.', loop: B + 'd7c3c6372b157fa0a5a6f33076bc90b0', src: B + '63c4a3777ddc0be99a30d292f04b718c', poster: B + 'ebc862d1f834f3e6b630a0db79f71387' },
+      { t: 'Xico Imóveis · Um pedaço da Europa', cat: 'EMPRESA', d: 'Imagens aéreas que mergulham do mapa até a Serra Gaúcha.', loop: B + '9f24e615984d3fa8e136e60c4bd56e22', src: B + '1e1efac88b0404f64372fa1fe27bcdaa', poster: B + 'c6418a5312378c6383a6a3cd796ff830' },
+      { t: 'Mister Breno', cat: 'EMPRESA', d: 'Reels de hambúrguer com cortes rápidos e close nos detalhes.', loop: B + 'a2cfff3104ead2d5d15620b8555e2117', src: B + '3efe0118949294f9dae5b0b7fed32ca8', poster: B + 'd1fa778e242af0e83be2b199740e81eb' },
+      { t: 'Sabores da Colônia', cat: 'EVENTO', d: 'Convite para o evento com imagens aéreas da serra.', loop: B + '694667893394c9dcdc69944e347ecbf5', src: B + '9b76dcb1533bb33dc52e65e05f8ec9d3', poster: B + '2027f7b59d8387363c9be88423d793bc' },
+      { t: 'Cabanas da Bia', cat: 'EMPRESA', d: 'Hospedagem na serra apresentada com roteiro emocional.', loop: B + 'b8fc66d6f1e6b80bf9708a694b5cfb21', src: B + '504a9671e2aae310b1ce3442ddfe8904', poster: B + 'c2d86aeb15121b1aeee6cc0ca3b5ebb1' },
+      { t: 'Casamento na igreja', cat: 'CASAMENTO', d: 'Making of, cerimônia e momentos com a família.', loop: B + 'b4fe296c990c8129e0d752fb2a03e463', src: B + '383b5159ff0485c8e1aa28fda5e6a8b7', poster: B + 'fc03edf0c12676873a935dbf65112f15' },
+      { t: 'Malharia Brilhante', cat: 'EMPRESA', d: 'A história da família contada pelos próprios donos.', loop: B + 'a782aa5f2de24632c9fb003ff6b53ac3', src: B + 'd60c9c4f9df6b552f5e3fc7e9aac9602', poster: B + '0551b83dcceb44dc2fafad41d7a7ed85' }
+    ];
+    const nV = videos.length;
+    const step = 360 / nV;
+    const anel = videos.map((v, i) => ({ ...v, ang: (i * step).toFixed(2) + 'deg', open: () => { if (st.moved < 6) this.setState({ aberto: i }); } }));
+    const tiltX = st.hover ? ((st.my - 45) / 50) * -10 : -6;
+    const idx = st.aberto;
+
+    const logos = [
+      ['Agro dos Guri', 'b0c633ee62d4e1179549600a30aeba91'],
+      ['Mister Breno', '1b5e1618547c7973ce5c6e5fa7055c3e'],
+      ['Pousada da Chácara', '72ef90528d0a32deb35d7630b04ed3fd'],
+      ['Daichi', '08f54b83cf721362589f4c0bda5da053'],
+      ['Golden Hills Hotel', '83f598a7bacaf38a525adf91c7cba928'],
+      ['Dra. Katy Rossi', '109bbeb6d2dcd50de9cb5465b1491e76'],
+      ['Kny & Advogados', '5b93f4f296507336a20e734a7d16881f'],
+      ['Lightstore Iluminação', 'ddeafcb8a00042132d43c17aeef825f7'],
+      ['Magia do Natal', 'cc93423e3678f573df5ea574e02b29e6'],
+      ['Mercado Marina', 'bdd36d2eb93ae63fb87adf949587bb9a'],
+      ['Não+Pêlo', '7663259bc67c22c3a644e5f949020d54'],
+      ['Sicredi', '5b994ea581cd643be76edf1a4cc7b00a'],
+      ['Sulbox Colchões', 'a3b8f24e612cbcd19461f88b2e8d8105'],
+      ['Villa Paradiso', '9898eb74a7085f6207834ea5f64fd0ff'],
+      ['Wittmann Transportes', 'f2407f6023ca6a85a98fb7d0e34def5a'],
+      ['Clóvis Brandt Transportes', 'c6885de2ae5822e569044b3fa91022ec'],
+      ['Cabanas da Bia', '35fcabe9605138266fb0fc01ae33ed9c'],
+      ['Chokito Garagem', '622ae3b2cf5573565ea09628a44a2cdf'],
+      ['Floricultura Exemplo', '101995776ed034eb851818c855d6a0da'],
+      ['InspiraCães', '3ff3e0c1cb1d929646167c6f2d20e796'],
+      ['Kegelbahn', 'b13fa220790c2a158f576ae82d8af3f4'],
+      ['Libélula Cerâmica', '20496c019d5c4abb902c82855e459c75'],
+      ['Luara', 'b649fe65a3236357fcc6a29790e1bd6b'],
+      ['A Fabulosa Máquina de Doces', 'c150137b35524b0f28de1b7c8304e837'],
+      ['Mercedita', '7b286e137ae5764574737874db4a9138'],
+      ['Nova Óptica', '473d37c04e3af703c31699816a78e02e'],
+      ['Sommer Bier Festival', 'ac9ab800098f12e043d854888754fa5b'],
+      ['Termocasa', 'd2dff73299511c7b2f492f42b3f05eb1'],
+      ['Virtuosa', '748d0f28e693aa1e064d87e9a0357a25'],
+      ['Xico Imóveis', '71201ac72f727ac379c518ff38b7aa9c'],
+      ['Açaí da Bia', 'fd37af45a8e7b9ac7be8b1e4d6f6ab15'],
+      ['Teacher Aline Huf', '434fb5a44117b1fb08ec15cbb01a6d77'],
+      ['Alpina Imóveis', 'c09fbf9a3279f26db7a94602219b735d'],
+      ['Amor de Loja', '7e51110abe8fc41cbbf9c15ee4c4eaaf'],
+      ['Aura Velas', '8dc74b75ae861f8008c25bed06831bbe'],
+      ['Cantina Cantibello', '3600ee3ce23a184d7c5a90bfe6240666'],
+      ['Studio Ana Paula Chiyoshi', '5d6cd516f57c53b6098bd1cab7e8706c'],
+      ['Condor Reisen Agência de Viagem', '83442028f260a57715d6266f8e462000'],
+      ['Corium One', 'd5ad8d6083259607cd28359687601953'],
+      ['Cortinas da Serra', '90764455468f38ae60f8a47b7d16c949'],
+      ['Diversitá Multi', '14734dff932b6d2d1fe9206693cdfcc2'],
+      ['Fisio Édina Boettcher', '42fd4936e706c47e95c73f723a5b8d9e'],
+      ['Eliane Imóveis', '365a88bf18e491982c6ef28aa5ac7ba5'],
+      ['Elise Malhas', '5e153c97d313aa35804b1545d02ed14c'],
+      ['Eu Prata', '09dcda716f1de9154b77f1871d7a0996'],
+      ['Exclusive Cell', 'a5a9729e028d8de78b21592830836c71'],
+      ['Funerária São José', 'b2b85037f5c9f2d0be5fab06f92f49fa'],
+      ['Hortus Odontologia', '1e0b809a7411e6e8211aa48a8ac249a0'],
+      ['Hotel Petrópolis', '376501374501d59cb5305050f20b46e9'],
+      ['Construtora Hübner', 'dc61828e6c345c09aa5fc4ae9bb9fecc'],
+      ['Indicare', '51cac23b1c9d0fdc33b2981623641692'],
+      ['Pousada Janela do Vale', '90879db1a716a8b74d06e4263418ed13'],
+      ['LandColor Gráfica', 'a9a09c11a8d4cec4477a4f4c0ec0caf9'],
+      ['Le Fort Malakoff', '9ba4bc8c48fcd05a61df9689405bd0f5'],
+      ['Limpíssima', '8399bc694e19798cabec9ac341d197d6'],
+      ['Madeireira Schumann', '4ad0d5284076dd11b9aa7ec07c237966'],
+      ['Malharia Brilhante', '61cc307b140c8aa505c38d049075389a'],
+      ['Mercado Alpina', '0040cc3af347e676e95fbce74bdc36a9'],
+      ['A Casa Michaelsen', '1b307f56cf1d52e3b47ddeda97f7d748'],
+      ['Dra. Neiva Schumann', '0c9db28530be0dbf631cb2640ee10175'],
+      ['New Bblue Turismo', '7a3681d9aee36bcba251d3d77f59892b'],
+      ['Nille Doces', 'd4a421616a2f43a85df52db1dc0792a5'],
+      ['Posto Ninho das Águias', '42a184561844689d7dc1328dc82183dc'],
+      ['Nosso Lar', '1ed1157911da83a25b1346de1c3c0e47'],
+      ['Nova Pet Food', 'c0854b2dc3c518979fe49337e455ab26'],
+      ['OAB Nova Petrópolis', '4dbc8948106e093d486cef2cbb09960d'],
+      ['Colchões Ortobom', '39efb22e06b9b6db43c2f5278cb81142'],
+      ['Pneumarc', 'cf3843c2e2b5ed964bbcfc0cb269b03c'],
+      ['Serra Dream Investment', 'f41d61b7fc0d41e4bdf035f83797a281'],
+      ['Sindicato STIA', '7003ff286bed69bab7a320f9ee93fc91'],
+      ['Tanile Confeitaria', '0fc101614188c5f54c5a04e19d1828e2'],
+      ['Diego Tonello', '8a7c61764401e1f67f13238a2d53452c'],
+      ['Torquês Restaurante', 'f2fff97031acedd0d1dbd3af6a47669a'],
+      ['Trend Construtora', '04ad1114712c443287b2cb58fccf1ad2'],
+      ['Tuli Coleta de Resíduos', '5cfc55f93f3628fea398d256a30e8d25'],
+      ['Café Colonial Walachay', '2231990c68a045c59cbcc264276d3d90'],
+      ['Maria Xiquinha', 'ff9a74b318381bdc2064f15cb6a77a49'],
+      ['Galeria Imigrante', '9e8921730915b50f59daaedff07d61fc'],
+      ['Giraffen Baby Brechó', '2c860d87677b7c0c56b9802cacde3ce0'],
+      ['Ju da Tupperware', '0fdbecbec1db8ff633ee701ff6cb9504'],
+      ['Studio Cailane Santos', '7ff5967fa103461b21dfc3afa5d723a9'],
+      ['Funerária Jung', '0f453a86374b94e164a23403f2094880'],
+      ['Forneria da Mata', '21a9417190a0622ce833909ce7bc5f89'],
+      ['A.E.C.R.J.', 'cd58cfca9eb16926480558620e381582'],
+      ['Central do Sabor', '9e7f555141c4ecf5ca8fb530edf73c52'],
+      ['Pizzaria Petropolitana', '09da62749920e6425516b421554588d4'],
+      ['Via Vitae', 'b12bfbe39d0f30a98ce9e4c904130e93'],
+      ['Gisela Michaelsen Eventos', '7fe0c4618a48745a53c4663e7bebb60c'],
+      ['Doutor Nataniel', '8a1e408bdc4acd666ebf44d44f31c43b'],
+      ['Rota da Lavanda', 'ec85b42e98fc3f4eab32d5c1f0eff1d3'],
+      ['Parque Aldeia do Imigrante', '84f75c4f5d80663e66613067b74193f3'],
+      ['EnDanse Escola de Dança', '14939a4d19566f399de9080b8dcd8d2c'],
+      ['Casa da Fruta', '482dbee0342df8bfa09cc365641791a1'],
+      ['Fotos 50mm Vini Martins', 'af9bdb12acd00d0083381beda94cf6ae'],
+      ['Magnífica Doces e Salgados', '376fc427637085f7939df3325236b734'],
+      ['Volkstanzgruppe Edelstein', 'b5ff162c07516041456930b451ef55f5'],
+      ['Schneider Veículos', '9abfd09357e080798da3940ed60c0a6e'],
+      ['Festival Sabores da Colônia', '8476543f97fd793c69a7905c5a3d32a7'],
+      ['Kerb im Tannenwald', 'b69713c8534cdf5a928fdf2c8bcddebf'],
+      ['Festival de Gastronomia de Gramado', 'ec8117952051fcf9e7d01cec57569d4c'],
+      ['Atitude Feminina', '035bb05ac4222cb946771d6842b0a4ae'],
+      ['Walk Comunicação', 'c67deafe00bb9468c3d2a3ff93946245'],
+      ['Associação Tiarajú', '6f2ba6bb32bd3b872b214f1296b190a5']
+    ].map(([nome, id]) => ({ img: B + id, nome: nome, tag: nome.toUpperCase() }));
+    const nL = logos.length;
+    const lc = ((st.lc % nL) + nL) % nL;
+    const cf = logos.map((l, i) => {
+      let d = i - lc;
+      if (d > nL / 2) d -= nL;
+      if (d < -nL / 2) d += nL;
+      const ad = Math.abs(d), sg = Math.sign(d);
+      const x = ad === 0 ? 0 : sg * (200 + (Math.min(ad, 6) - 1) * 125);
+      const z = ad === 0 ? 80 : -110 - Math.min(ad, 6) * 70;
+      const ry = ad === 0 ? 0 : -sg * Math.min(30 + ad * 6, 55);
+      const sc = ad === 0 ? 1.12 : 1;
+      const op = ad > 5 ? 0 : (ad === 0 ? 1 : 0.92 - ad * 0.13);
+      const glow = ad === 0 ? 'box-shadow: 0 0 0 3px #F4450F, 0 30px 90px -10px rgba(244,69,15,0.85);' : 'box-shadow: 0 0 0 2px rgba(243,239,233,0.18), 0 20px 50px -20px rgba(0,0,0,0.9);';
+      const filt = ad === 0 ? 'filter: none;' : 'filter: brightness(' + (0.85 - ad * 0.08).toFixed(2) + ') saturate(0.75);';
+      return {
+      moveGlow: (e) => { try { const g = e.currentTarget.querySelector('.cy-cursor'); if (g) { g.style.transform = 'translate3d(' + (e.clientX - 200) + 'px,' + (e.clientY - 200) + 'px,0)'; if (!g.classList.contains('on')) g.classList.add('on'); } } catch (err) {} },
+        ...l,
+        style: 'transform: translateX(' + x + 'px) translateZ(' + z + 'px) rotateY(' + ry + 'deg) scale(' + sc + '); opacity: ' + op.toFixed(2) + '; z-index: ' + (50 - ad) + '; pointer-events: ' + (ad > 5 ? 'none' : 'auto') + '; cursor: ' + (ad === 0 ? 'grab' : 'pointer') + ';' + glow + filt,
+        go: () => { if (st.lmoved < 6) this.setState({ lc: st.lc + d }); }
+      };
+    });
+    const gx = (ev) => (ev.touches && ev.touches[0] ? ev.touches[0].clientX : ev.clientX);
+
+    const inclui = [
+      ['Gancho dos 3 primeiros segundos', 'Roteiro aprovado antes de gravar', 'Ideias alinhadas ao seu público'],
+      ['Equipe e equipamentos de ponta', 'Direção de fala e postura', 'Imagens aéreas com drone'],
+      ['Cortes no ritmo do vertical', 'Legenda na tela', 'Trilha e efeitos'],
+      ['Capas e legendas atraentes', 'Calendário de postagens', 'Publicação programada'],
+      ['Campanhas no Facebook e Instagram', 'Segmentação de público', 'Ajustes para maximizar resultado'],
+      ['Eventos corporativos, sociais e culturais', 'Entrega rápida para as redes', 'Cobertura completa do evento'],
+      ['Fotos de produtos e ambientes', 'Retratos da equipe e da marca', 'Fotos de eventos e casamentos']
+    ];
+    const base = [
+      { t: 'Ideias e roteiros', d: 'Conceitos criativos e roteiros alinhados ao seu público e aos seus objetivos.' },
+      { t: 'Produção de vídeos', d: 'Vídeos que destacam os pontos fortes da sua marca, produto ou serviço.' },
+      { t: 'Edição de reels', d: 'Ritmo, cortes e legendas pensados para o formato vertical.' },
+      { t: 'Gestão de postagens', d: 'Da capa e legenda ao gerenciamento das postagens nas redes sociais.' },
+      { t: 'Tráfego pago', d: 'Campanhas otimizadas no Meta para visibilidade, engajamento e vendas.' },
+      { t: 'Cobertura de eventos', d: 'Equipe especializada para registrar grandes eventos com agilidade e qualidade.' },
+      { t: 'Fotografia', d: 'Também fotografamos quando você precisar: produtos, ambientes, equipe, eventos e casamentos.' }
+    ];
+    const servicos = base.map((s, i) => {
+      const on = st.servico === i;
+      return {
+        n: String(i + 1), t: s.t, d: s.d, inclui: inclui[i], ativo: on, expanded: on ? 'true' : 'false',
+        pick: () => this.setState({ servico: on ? -1 : i }),
+        cardStyle: on ? 'background: #060505; color: #F3EFE9; border: 1px solid ' + accent + '; box-shadow: 0 0 0 4px rgba(244,69,15,0.18), 0 30px 60px -30px rgba(244,69,15,0.8);' : 'background: #FFFFFF; color: #050505; border: 1px solid #DCD6CC;',
+        badgeStyle: on ? 'background: ' + accent + '; color: #050505; border: 3px solid ' + accent + ';' : 'background: transparent; color: #050505; border: 3px solid ' + accent + ';',
+        plusStyle: on ? 'transform: rotate(45deg); color: #FF6A3D;' : 'transform: none; color: #050505;',
+        textStyle: on ? 'color: #C9C4BC;' : 'color: #4A4744;'
+      };
+    });
+
+    const etBase = [
+      { n: '01', t: 'Briefing', d: 'Uma conversa para entender seu negócio, seu público e o que você quer alcançar. Cada negócio é único.' },
+      { n: '02', t: 'Roteiro', d: 'Ideias e roteiros escritos pela nossa equipe e aprovados com você antes de qualquer gravação.' },
+      { n: '03', t: 'REC', d: 'Gravação dirigida no seu espaço ou em locação, com equipamentos de ponta.' },
+      { n: '04', t: 'Postagem', d: 'Edição, capa e legenda prontas. Publicamos e acompanhamos os resultados.' }
+    ];
+    const etapas = etBase.map((e, i) => {
+      const on = st.etapa === i;
+      return {
+        ...e, ativo: on, selected: on ? 'true' : 'false',
+        pick: () => this.setState({ etapa: i, auto: false }),
+        tabStyle: on ? 'background: #050505; color: #F3EFE9;' : 'background: #F3EFE9; color: #050505;',
+        numStyle: on ? 'color: #FF6A3D;' : 'color: #6B6660;'
+      };
+    });
+
+    const reels = [0, 1, 2, 3].map((i) => ({ ...videos[i], cat2: videos[i].cat.toLowerCase(), open: () => this.setState({ aberto: i }) }));
+
+    const equipe = [
+      { nome: 'Gabriel Michaelsen', cargo: 'Sócio proprietário', img: B + '5fcbac5e53754a5f811578d90c181672' },
+      { nome: 'Eduarda Seibt', cargo: 'Sócia proprietária', img: B + 'fa802b7820246af265ad262cbd9e7136' },
+      { nome: 'Claus Kny', cargo: 'Sócio proprietário', img: B + 'ad54f636db6613d7f131072801f35da8' },
+      { nome: 'Kelvin Blankenburg', cargo: 'Editor de vídeos', img: B + '5af3b9b29cd0866c88d3b0293c8584bb' },
+      { nome: 'Danilo Barbosa', cargo: 'Filmmaker', img: B + 'c76bdab6839727708a5de26449b42ced' },
+      { nome: 'Rayssa Barbosa', cargo: 'Filmmaker e editora', img: B + 'c3bb5af063d763328de7890c8cf3abfa' },
+      { nome: 'Gilberto Kny', cargo: 'Financeiro', img: B + 'd296cb950e6d068d8cc2414ec5478fd1' }
+    ];
+
+    const faqBase = [
+      { p: 'Preciso saber falar para a câmera?', r: 'Não. Na gravação a gente orienta a fala e a postura e repete quantas vezes precisar até ficar natural.' },
+      { p: 'Vocês cuidam da postagem e dos anúncios?', r: 'Sim. Criamos capas e legendas, gerenciamos as postagens e cuidamos do tráfego pago no Facebook e Instagram.' },
+      { p: 'Fazem cobertura de eventos e casamentos?', r: 'Sim. Cobrimos eventos corporativos, sociais, esportivos e culturais, com entrega rápida. Casamentos têm uma página própria.' },
+      { p: 'Como peço um orçamento?', r: 'É só chamar a gente no WhatsApp +55 54 99427-0505. Montamos uma proposta sob medida para o seu negócio.' }
+    ];
+    const faq = faqBase.map((q, i) => {
+      const on = st.faq === i;
+      return {
+        ...q, on: on, expanded: on ? 'true' : 'false',
+        toggle: () => this.setState({ faq: on ? -1 : i }),
+        boxStyle: on ? 'background: #060505; border-color: #060505;' : 'background: #FFFFFF;',
+        titleStyle: on ? 'color: #F3EFE9;' : 'color: #050505;',
+        iconStyle: on ? 'background: ' + accent + '; color: #050505; transform: rotate(45deg);' : 'background: #F3EFE9; color: #050505; transform: none;'
+      };
+    });
+
+    const palavras = ['REELS', 'ROTEIRO', 'GRAVAÇÃO', 'EDIÇÃO', 'TRÁFEGO PAGO', 'EVENTOS', 'DRONE', 'POSTAGEM'];
+    const brasas = Array.from({ length: 14 }, (_, k) => ({ x: ((k * 37) % 100) + '%', d: ((k * 0.7) % 6).toFixed(1) + 's', t: (5 + (k % 4)) + 's' }));
+    const faiscas = st.faiscas.map((s) => ({
+      style: 'transform: translate(' + (s.fly ? s.dx : 0) + 'px, ' + (s.fly ? s.dy : 0) + 'px) scale(' + (s.fly ? 0.2 : s.size) + '); opacity: ' + (s.fly ? 0 : 1) + '; background: ' + (s.size > 1 ? '#FF6A3D' : accent) + ';'
+    }));
+    return {
+      accent: accent,
+      zap: 'https://wa.me/5554994270505?text=Ol%C3%A1%2C%20Cynder!%20Quero%20chamar%20um%20or%C3%A7amento.',
+      onHeroMove: (ev) => {
+        const r = ev.currentTarget.getBoundingClientRect();
+        const next = { mx: ((ev.clientX - r.left) / r.width) * 100, my: ((ev.clientY - r.top) / r.height) * 100, hover: true };
+        if (st.drag) { const dx = ev.clientX - st.lastX; next.rot = st.rot + dx * 0.35; next.lastX = ev.clientX; next.moved = st.moved + Math.abs(dx); }
+        this.setState(next);
+      },
+      onHeroLeave: () => this.setState({ hover: false, drag: false }),
+      startDrag: (ev) => this.setState({ drag: true, lastX: ev.clientX, moved: 0 }),
+      endDrag: () => this.setState({ drag: false }),
+      cursor: st.drag ? 'grabbing' : 'grab',
+      stageTransform: 'rotateX(' + tiltX.toFixed(1) + 'deg) rotateY(' + st.rot.toFixed(1) + 'deg)',
+      heroGlow: 'opacity: ' + (st.hover ? 1 : 0.6) + '; background: radial-gradient(560px circle at ' + st.mx.toFixed(1) + '% ' + st.my.toFixed(1) + '%, rgba(244,69,15,0.24), rgba(244,69,15,0) 70%);',
+      brasas: brasas,
+      anel: anel,
+      forcePlay: (e) => { try { e.target.muted = true; const p = e.target.play(); if (p && p.catch) p.catch(() => {}); } catch (err) {} },
+      grabReel: (e) => { this.reelEl = e.target; try { if (!st.playing) { e.target.muted = true; const p = e.target.play(); if (p && p.catch) p.catch(() => {}); } } catch (err) {} },
+      playing: st.playing, paused: !st.playing,
+      togglePlay: () => {
+        const el = this.reelEl;
+        if (el) { try { el.muted = true; if (!st.playing) { el.currentTime = 0; el.play(); } } catch (err) {} }
+        this.setState({ playing: !st.playing });
+      },
+      reelFilter: st.playing ? 'filter: none;' : 'filter: brightness(0.55) saturate(0.8);',
+      reelVeil: st.playing ? 'rgba(6,5,5,0)' : 'rgba(6,5,5,0.35)',
+      reelBorder: st.playing ? accent : '#2A2826',
+      reelShadow: st.playing ? '0 0 0 4px rgba(244,69,15,0.2), 0 40px 120px -40px rgba(244,69,15,0.7)' : 'none',
+      faixa: palavras.concat(palavras),
+      navItens: [['Início', '#topo'], ['Serviços', '#servicos'], ['Trabalhos', 'Trabalhos.dc.html'], ['Casamentos', 'Casamentos.dc.html'], ['Sobre', 'Sobre.dc.html'], ['Contato', 'Contato.dc.html']].map(([t, h]) => ({
+        t: t, href: h, cls: 'cy-navp' + (st.nav === t ? ' on' : ''),
+        go: (ev) => {
+          if (h.charAt(0) === '#') {
+            try { ev.preventDefault(); const el = ev.currentTarget.ownerDocument.getElementById(h.slice(1)); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) {}
+          }
+          this.setState({ nav: t });
+        }
+      })),
+      cidades: [['Nova Petrópolis', 300, 270, true], ['Gramado', 300, 152], ['Picada Café', 430, 211], ['Caxias do Sul', 430, 329], ['Feliz', 300, 388], ['Santa Maria do Herval', 170, 329], ['Linha Nova', 170, 211], ['Canela', 381, 61], ['Bento Gonçalves', 504, 159], ['Farroupilha', 532, 309], ['Vale Real', 452, 440], ['São Vendelino', 300, 492], ['Bom Princípio', 148, 440], ['Ivoti', 68, 309], ['Dois Irmãos', 96, 159], ['Morro Reuter', 219, 61]].map(([nome, x, y, base]) => {
+        const on = st.cidade === nome;
+        const q = encodeURIComponent(nome + ', RS');
+        return {
+          nome: nome, x: (x / 600 * 100).toFixed(2) + '%', y: (y / 540 * 100).toFixed(2) + '%', z: on ? 5 : 2,
+          on: on, aberto: on ? 'true' : 'false',
+          cls: 'cy-pin' + (base ? ' base' : '') + (on ? ' on' : ''),
+          gmaps: 'https://www.google.com/maps/search/?api=1&query=' + q,
+          waze: 'https://waze.com/ul?q=' + q + '&navigate=yes',
+          toggle: () => this.setState({ cidade: on ? '' : nome })
+        };
+      }),
+      cf: cf,
+      nMarcas: nL,
+      lNome: logos[lc].nome,
+      lConta: String(lc + 1).padStart(2, '0') + ' / ' + nL + ' MARCAS ATENDIDAS',
+      lPrev: () => this.setState({ lc: st.lc - 1 }),
+      lNext: () => this.setState({ lc: st.lc + 1 }),
+      lCursor: st.ldrag ? 'grabbing' : 'grab',
+      lDown: (ev) => this.setState({ ldrag: true, lx: gx(ev), lacc: 0, lmoved: 0, lhover: true }),
+      lMove: (ev) => {
+        if (!st.ldrag) { if (!st.lhover) this.setState({ lhover: true }); return; }
+        const x = gx(ev); if (x == null) return;
+        let acc = st.lacc + (x - st.lx); let c = st.lc;
+        while (acc <= -110) { c += 1; acc += 110; }
+        while (acc >= 110) { c -= 1; acc -= 110; }
+        this.setState({ lx: x, lacc: acc, lc: c, lmoved: st.lmoved + Math.abs(x - st.lx) });
+      },
+      lUp: () => this.setState({ ldrag: false }),
+      lLeave: () => this.setState({ ldrag: false, lhover: false }),
+      servicos: servicos,
+      etapas: etapas,
+      etapaAtual: etBase[st.etapa],
+      reels: reels,
+      equipe: equipe,
+      faq: faq,
+      aberto: idx >= 0,
+      atual: idx >= 0 ? videos[idx] : videos[0],
+      fechar: () => this.setState({ aberto: -1 }),
+      proximo: () => this.setState({ aberto: (idx + 1) % nV }),
+      anterior: () => this.setState({ aberto: (idx - 1 + nV) % nV }),
+      acender: () => this.acender(),
+      faiscas: faiscas,
+      chamaStyle: st.lit ? 'background: #050505; box-shadow: 0 0 0 10px rgba(5,5,5,0.12), 0 0 80px 10px rgba(255,106,61,0.9);' : 'background: rgba(5,5,5,0.9); box-shadow: 0 0 0 10px rgba(5,5,5,0.08);',
+      chamaImg: st.lit ? 'filter: drop-shadow(0 0 18px #FF6A3D) brightness(1.15);' : 'filter: grayscale(0.4) brightness(0.8);',
+      lit: st.lit,
+      chamaLabel: st.lit ? (st.disparos > 1 ? 'MAIS FAÍSCA!' : 'ACESO! CLIQUE DE NOVO') : 'CLIQUE PARA ACENDER'
+    };
+  }
+}
+</script>
+</body>
+</html>

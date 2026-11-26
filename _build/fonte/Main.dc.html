@@ -643,7 +643,7 @@ class Component extends DCLogic {
   }
   componentDidMount() {
     setTimeout(() => this.lazyScan(), 300);
-    try { const h = (window.location.hash || '').slice(1); if (h) { const el = document.getElementById(h); if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 300); } } catch (e) {}
+    try { if ((window.location.hash || '') === '#servicos') this.setState({ nav: 'Serviços' }); } catch (e) {}
     this.timer = setInterval(() => {
       if (this.state.auto) this.setState({ etapa: (this.state.etapa + 1) % 4 });
     }, 4000);

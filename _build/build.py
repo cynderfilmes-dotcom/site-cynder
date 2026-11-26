@@ -6,6 +6,10 @@ import sys
 SRC = '/mnt/user-data/outputs/artifacts/619adda7-f999-414c-b2be-2d68446844f0/project/'
 OUT = sys.argv[1] if len(sys.argv) > 1 else '/home/claude/site-cynder/public/'
 NAVFIX = """<script>
+(function(){var h=decodeURIComponent((location.hash||'').slice(1));if(!h)return;try{history.scrollRestoration='manual'}catch(e){}
+var parar=false,ini=Date.now(),stop=function(){parar=true};['touchstart','wheel','keydown','mousedown'].forEach(function(t){addEventListener(t,stop,{passive:true,once:true})});
+(function ir(){if(parar)return;var el=document.getElementById(h);if(el){var hd=document.querySelector('header'),off=hd?hd.offsetHeight:0;var y=Math.max(0,el.getBoundingClientRect().top+scrollY-off);if(Math.abs(scrollY-y)>2)scrollTo(0,y);}
+if(Date.now()-ini<4000)setTimeout(ir,el?200:50);})();})();
 (function(){var K='cyNavX',t=0;function go(){var n=document.querySelector('.cy-nav');if(!n){if(t++<60)return setTimeout(go,50);return;}
 var x=null;try{x=sessionStorage.getItem(K)}catch(e){}
 if(x!==null)n.scrollLeft=+x;

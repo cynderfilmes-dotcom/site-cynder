@@ -2,6 +2,11 @@
   "name": "site-cynder",
   "main": "src/index.js",
   "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "cynderfilmes.com.br", "custom_domain": true },
+    { "pattern": "www.cynderfilmes.com.br", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",

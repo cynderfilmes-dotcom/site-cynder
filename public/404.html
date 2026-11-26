@@ -220,6 +220,35 @@ a{color:#C2370A}a:hover{color:#050505}
 .cy-close:hover{transform:rotate(90deg);background:#F4450F !important}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
 </style>
+<style>
+@media (max-width:760px){
+header>div{padding:10px 16px !important;gap:10px !important;flex-wrap:nowrap !important}
+header>div>a img{height:28px !important}
+.cy-nav{flex-wrap:nowrap !important;overflow-x:auto;gap:2px !important;-webkit-overflow-scrolling:touch;scrollbar-width:none;min-width:0;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent);padding-right:18px}
+.cy-nav::-webkit-scrollbar{display:none}
+.cy-navp{padding:7px 11px !important;font-size:13px !important;white-space:nowrap;flex:none}
+.cy-nav .cy-btn{display:none !important}
+}
+</style>
+<style>
+.cy-swipe{display:none}
+@media (max-width:760px){
+.cy-overlay{z-index:10000 !important;padding:14px !important;align-items:flex-start !important;overflow-y:auto}
+.cy-pop{flex-direction:column;flex-wrap:nowrap !important;gap:14px !important;width:100%;padding-top:6px}
+.cy-lbvid{height:auto !important;width:min(80vw,calc(60vh * 0.5625)) !important;border-radius:22px !important}
+.cy-lbinfo{max-width:none !important;width:100%;gap:8px !important;align-items:center;text-align:center}
+.cy-lbinfo>span:first-child{align-self:center !important;font-size:10px !important}
+.cy-lbt{font-size:24px !important}
+.cy-lbd{font-size:14px !important}
+.cy-swipe{display:block;font-size:12px;color:#A39E97;letter-spacing:.04em}
+.cy-close{top:0 !important;right:0 !important;width:44px !important;height:44px !important}
+.cy-hgrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:16px 10px !important}
+.cy-hcap{flex-direction:column;gap:2px !important}
+.cy-hcap span:first-child{font-size:15px !important;line-height:1.2}
+.cy-hcap span:last-child{font-size:11px !important;text-transform:uppercase;letter-spacing:.14em}
+.cy-hgrid .cy-reel{border-radius:18px !important}
+}
+</style>
 
 </head>
 <body>
@@ -428,7 +457,7 @@ Arraste para girar · clique em um vídeo para assistir
 </div>
 <a class="cy-btn" href="/trabalhos" style="color: #050505; border: 2px solid #050505; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.24em; padding: 14px 22px; border-radius: 999px">VER TODOS →</a>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+<div class="cy-hgrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
 <sc-for list="{{reels}}" as="r" hint-placeholder-count="4">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <button type="button" class="cy-reel" aria-label="Assistir: {{r.t}}" onClick="{{ r.open }}" style="font-family: inherit; cursor: pointer; border: 0; aspect-ratio: 9 / 16; border-radius: 28px; background: #060505; padding: 0; position: relative; overflow: hidden">
@@ -438,7 +467,7 @@ Arraste para girar · clique em um vídeo para assistir
 <span class="cy-play" style="position: absolute; left: 50%; top: 50%; margin: -30px 0 0 -30px; width: 60px; height: 60px; border-radius: 999px; background: {{accent}}; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l11 7-11 7z"></path></svg></span>
 <span style="position: absolute; left: 18px; bottom: 16px; font-size: 13px; color: #F3EFE9">@cynderfilmes</span>
 </button>
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px">
+<div class="cy-hcap" style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px">
 <span style="font-size: 18px; font-weight: 700">{{r.t}}</span>
 <span style="font-size: 14px; color: #6B6660">{{r.cat2}}</span>
 </div>
@@ -586,14 +615,15 @@ Arraste para girar · clique em um vídeo para assistir
 </footer>
 
 <sc-if value="{{ aberto }}" hint-placeholder-val="{{ false }}">
-<div class="cy-overlay" role="dialog" aria-modal="true" aria-label="Player de vídeo" style="position: fixed; inset: 0; z-index: 60; background: rgba(6,5,5,0.92); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box">
+<div class="cy-overlay" role="dialog" aria-modal="true" aria-label="Player de vídeo" onTouchStart="{{ toqueIni }}" onTouchEnd="{{ toqueFim }}" style="position: fixed; inset: 0; z-index: 60; background: rgba(6,5,5,0.92); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box">
 <button type="button" aria-label="Fechar" onClick="{{ fechar }}" style="position: absolute; inset: 0; background: transparent; border: 0; cursor: pointer"></button>
-<div class="cy-popin" style="position: relative; display: flex; flex-wrap: wrap; gap: 36px; align-items: center; justify-content: center">
-<video src="{{atual.src}}" poster="{{atual.poster}}" controls="" autoplay="" playsinline="" style="height: min(80vh, 760px); aspect-ratio: 9 / 16; border-radius: 28px; background: #050505; border: 1px solid #F4450F; box-shadow: 0 0 0 6px rgba(244,69,15,0.18), 0 40px 140px -30px rgba(244,69,15,0.8)"></video>
-<div style="display: flex; flex-direction: column; gap: 14px; color: #F3EFE9; max-width: 300px">
+<div class="cy-popin cy-pop" style="position: relative; display: flex; flex-wrap: wrap; gap: 36px; align-items: center; justify-content: center">
+<video class="cy-lbvid" src="{{atual.src}}" poster="{{atual.poster}}" controls="" autoplay="" playsinline="" style="height: min(80vh, 760px); aspect-ratio: 9 / 16; border-radius: 28px; background: #050505; border: 1px solid #F4450F; box-shadow: 0 0 0 6px rgba(244,69,15,0.18), 0 40px 140px -30px rgba(244,69,15,0.8)"></video>
+<div class="cy-lbinfo" style="display: flex; flex-direction: column; gap: 14px; color: #F3EFE9; max-width: 300px">
 <span style="align-self: flex-start; border: 2px solid #F4450F; color: #FF6A3D; font-size: 12px; font-weight: 500; letter-spacing: 0.28em; padding: 6px 14px; border-radius: 999px">{{atual.cat}}</span>
-<h2 style="margin: 0; font-size: 38px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">{{atual.t}}</h2>
-<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #C9C4BC">{{atual.d}}</p>
+<h2 class="cy-lbt" style="margin: 0; font-size: 38px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">{{atual.t}}</h2>
+<p class="cy-lbd" style="margin: 0; font-size: 17px; line-height: 1.5; color: #C9C4BC">{{atual.d}}</p>
+<div class="cy-swipe" aria-hidden="true">← arraste para o lado para ver outros vídeos →</div>
 <div style="display: flex; gap: 12px; margin-top: 6px">
 <button type="button" class="cy-btn" onClick="{{ anterior }}" aria-label="Vídeo anterior" style="font-family: inherit; cursor: pointer; width: 56px; height: 56px; border-radius: 999px; border: 2px solid #F3EFE9; background: transparent; color: #F3EFE9; font-size: 20px">←</button>
 <button type="button" class="cy-btn" onClick="{{ proximo }}" aria-label="Próximo vídeo" style="font-family: inherit; cursor: pointer; width: 56px; height: 56px; border-radius: 999px; border: 0; background: #F4450F; color: #050505; font-size: 20px">→</button>
@@ -978,6 +1008,8 @@ class Component extends DCLogic {
       fechar: () => this.setState({ aberto: -1 }),
       proximo: () => this.setState({ aberto: (idx + 1) % nV }),
       anterior: () => this.setState({ aberto: (idx - 1 + nV) % nV }),
+      toqueIni: (e) => { const t = e.touches && e.touches[0]; if (t) { this._tx = t.clientX; this._ty = t.clientY; } },
+      toqueFim: (e) => { const t = e.changedTouches && e.changedTouches[0]; if (!t || this._tx == null) return; const dx = t.clientX - this._tx; const dy = t.clientY - this._ty; this._tx = null; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.3) this.setState({ aberto: dx < 0 ? (idx + 1) % nV : (idx - 1 + nV) % nV }); },
       acender: () => this.acender(),
       faiscas: faiscas,
       chamaStyle: st.lit ? 'background: #050505; box-shadow: 0 0 0 10px rgba(5,5,5,0.12), 0 0 80px 10px rgba(255,106,61,0.9);' : 'background: rgba(5,5,5,0.9); box-shadow: 0 0 0 10px rgba(5,5,5,0.08);',

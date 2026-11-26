@@ -110,6 +110,42 @@ a{color:#C2370A}a:hover{color:#050505}
 .cy-ig:hover{background:#F3EFE9 !important;color:#050505 !important;transform:translateY(-2px)}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
 </style>
+<style>
+@media (max-width:760px){
+header>div{padding:10px 16px !important;gap:10px !important;flex-wrap:nowrap !important}
+header>div>a img{height:28px !important}
+.cy-nav{flex-wrap:nowrap !important;overflow-x:auto;gap:2px !important;-webkit-overflow-scrolling:touch;scrollbar-width:none;min-width:0;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent);padding-right:18px}
+.cy-nav::-webkit-scrollbar{display:none}
+.cy-navp{padding:7px 11px !important;font-size:13px !important;white-space:nowrap;flex:none}
+.cy-nav .cy-btn{display:none !important}
+}
+</style>
+<style>
+.cy-swipe{display:none}
+@media (max-width:760px){
+.cy-wrap{padding:40px 16px 80px !important;gap:20px !important}
+.cy-filtros{flex-wrap:nowrap !important;overflow-x:auto;gap:8px !important;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
+.cy-filtros::-webkit-scrollbar{display:none}
+.cy-filtros button{padding:9px 14px !important;min-height:40px !important;font-size:11px !important;letter-spacing:.14em !important;flex:none}
+.cy-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:14px 10px !important}
+.cy-reel{border-radius:18px !important}
+.cy-reel .cy-play{width:44px !important;height:44px !important;margin:-22px 0 0 -22px !important}
+.cy-reel .cy-play svg{width:18px;height:18px}
+.cy-reel .cy-info{left:12px !important;right:12px !important;bottom:12px !important}
+.cy-reel .cy-info span:first-child{font-size:14px !important;line-height:1.15}
+.cy-reel .cy-info span:last-child{font-size:11px !important}
+.cy-badge{top:10px !important;left:10px !important;font-size:9px !important;padding:4px 8px !important;letter-spacing:.16em !important}
+.cy-overlay{z-index:10000 !important;padding:14px !important;align-items:flex-start !important;overflow-y:auto}
+.cy-pop{flex-direction:column;flex-wrap:nowrap !important;gap:14px !important;width:100%;padding-top:6px}
+.cy-lbvid{height:auto !important;width:min(80vw,calc(60vh * 0.5625)) !important;border-radius:22px !important}
+.cy-lbinfo{max-width:none !important;width:100%;gap:8px !important;align-items:center;text-align:center}
+.cy-lbinfo>span:first-child{align-self:center !important;font-size:10px !important}
+.cy-lbt{font-size:24px !important}
+.cy-lbd{font-size:14px !important}
+.cy-swipe{display:block;font-size:12px;color:#A39E97;letter-spacing:.04em}
+.cy-close{top:0 !important;right:0 !important;width:44px !important;height:44px !important}
+}
+</style>
 </helmet>
 <div onMouseMove="{{ moveGlow }}" id="topo" style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #050505; background: #F3EFE9; width: 100%; position: relative">
 <a class="cy-wa" href="https://wa.me/5554994270505?text=Ol%C3%A1%2C%20Cynder!%20Vim%20pelo%20site%20e%20quero%20chamar%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar com a Cynder no WhatsApp"><span class="cy-watip">Fale com a gente</span><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.6 8.6 0 0 1-12.6 7.6L3.5 20.5l1.3-4.2a8.6 8.6 0 1 1 15.7-4.7z"></path><path d="M9.1 8.2c.2-.4.5-.4.8-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.7l-.5.6c-.1.2-.1.4 0 .5.6 1 1.4 1.8 2.4 2.3.2.1.4.1.5 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5v.4c0 .4-.2.8-.6 1-.6.3-1.3.4-2 .2-2.4-.7-4.3-2.6-5-5-.2-.7-.1-1.4.2-1.8z" fill="#FFFFFF" stroke="none"></path></svg></a>
@@ -147,9 +183,9 @@ a{color:#C2370A}a:hover{color:#050505}
 
 <section class="cy-decosec" style="background: #F3EFE9">
 <div class="cy-deco" aria-hidden="true"><div class="cy-tgrid"></div><div class="cy-tglow" style="right: -260px; top: -260px"></div><div class="cy-beam" style="top: 0"></div></div>
-<div style="max-width: 1240px; margin: 0 auto; padding: 64px 32px 120px; display: flex; flex-direction: column; gap: 32px">
+<div class="cy-wrap" style="max-width: 1240px; margin: 0 auto; padding: 64px 32px 120px; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
-<div role="group" aria-label="Filtrar por tipo" style="display: flex; flex-wrap: wrap; gap: 12px">
+<div class="cy-filtros" role="group" aria-label="Filtrar por tipo" style="display: flex; flex-wrap: wrap; gap: 12px">
 <sc-for list="{{filtros}}" as="f" hint-placeholder-count="5">
 <button type="button" class="cy-pill" aria-pressed="{{f.pressed}}" onClick="{{ f.pick }}" style="font-family: inherit; cursor: pointer; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; padding: 14px 22px; border-radius: 999px; min-height: 48px; display: inline-flex; align-items: center; gap: 10px; {{f.style}}">{{f.label}}<span style="font-size: 11px; padding: 3px 8px; border-radius: 999px; {{f.countStyle}}">{{f.qtd}}</span></button>
 </sc-for>
@@ -157,14 +193,14 @@ a{color:#C2370A}a:hover{color:#050505}
 <div style="font-size: 14px; color: #6B6660">{{contagem}}</div>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px 20px">
+<div class="cy-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px 20px">
 <sc-for list="{{itens}}" as="r" hint-placeholder-count="12">
 <article class="cy-in" style="display: flex; flex-direction: column; gap: 12px; animation-delay: {{r.delay}}">
 <button type="button" class="cy-reel" aria-label="Ver detalhes: {{r.t}}" onClick="{{ r.open }}" style="font-family: inherit; cursor: pointer; border: 0; aspect-ratio: 9 / 16; border-radius: 28px; background: #060505; padding: 0; position: relative; overflow: hidden; width: 100%">
 <sc-if value="{{ r.temVideo }}" hint-placeholder-val="{{ false }}"><video data-src="{{r.loop}}" poster="{{r.img}}" preload="none" muted="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none"></video></sc-if>
 <sc-if value="{{ r.semVideo }}" hint-placeholder-val="{{ true }}"><img src="{{r.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block"></sc-if>
 <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,5,5,0.4) 0%, rgba(6,5,5,0) 28%, rgba(6,5,5,0) 55%, rgba(6,5,5,0.85) 100%)"></span>
-<span style="position: absolute; top: 18px; left: 18px; background: rgba(6,5,5,0.6); color: #F3EFE9; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; padding: 6px 12px; border-radius: 999px">{{r.cat}}</span>
+<span class="cy-badge" style="position: absolute; top: 18px; left: 18px; background: rgba(6,5,5,0.6); color: #F3EFE9; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; padding: 6px 12px; border-radius: 999px">{{r.cat}}</span>
 <span class="cy-play" style="position: absolute; left: 50%; top: 50%; margin: -32px 0 0 -32px; width: 64px; height: 64px; border-radius: 999px; background: #F4450F; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l11 7-11 7z"></path></svg></span>
 <span class="cy-info" style="position: absolute; left: 20px; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 4px; text-align: left; color: #F3EFE9">
 <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em">{{r.t}}</span>
@@ -193,10 +229,10 @@ a{color:#C2370A}a:hover{color:#050505}
 </footer>
 
 <sc-if value="{{ aberto }}" hint-placeholder-val="{{ false }}">
-<div class="cy-overlay" role="dialog" aria-modal="true" aria-label="Detalhes do vídeo" style="position: fixed; inset: 0; z-index: 50; background: rgba(6,5,5,0.9); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box">
+<div class="cy-overlay" role="dialog" aria-modal="true" aria-label="Detalhes do vídeo" onTouchStart="{{ toqueIni }}" onTouchEnd="{{ toqueFim }}" style="position: fixed; inset: 0; z-index: 50; background: rgba(6,5,5,0.9); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box">
 <button type="button" aria-label="Fechar" onClick="{{ fechar }}" style="position: absolute; inset: 0; background: transparent; border: 0; cursor: pointer"></button>
 <div class="cy-pop" style="position: relative; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; max-width: 960px">
-<div style="position: relative; height: min(76vh, 720px); aspect-ratio: 9 / 16; border-radius: 32px; background: #1A1918; border: 1px solid #F4450F; box-shadow: 0 0 0 6px rgba(244,69,15,0.18), 0 40px 140px -30px rgba(244,69,15,0.8); overflow: hidden">
+<div class="cy-lbvid" style="position: relative; height: min(76vh, 720px); aspect-ratio: 9 / 16; border-radius: 32px; background: #1A1918; border: 1px solid #F4450F; box-shadow: 0 0 0 6px rgba(244,69,15,0.18), 0 40px 140px -30px rgba(244,69,15,0.8); overflow: hidden">
 <sc-if value="{{ atual.temVideo }}" hint-placeholder-val="{{ false }}"><video src="{{atual.src}}" poster="{{atual.img}}" controls="" autoplay="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 3; background: #050505"></video></sc-if>
 <img class="cy-kb" src="{{atual.img}}" alt="{{atual.t}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; inset: 0; background: rgba(6,5,5,0.15)"></span>
@@ -206,10 +242,11 @@ a{color:#C2370A}a:hover{color:#050505}
 </span>
 <span style="position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: rgba(243,239,233,0.2)"><span class="cy-bar-reel" style="display: block; height: 100%; background: #F4450F"></span></span>
 </div>
-<div style="display: flex; flex-direction: column; gap: 16px; color: #F3EFE9; max-width: 340px">
+<div class="cy-lbinfo" style="display: flex; flex-direction: column; gap: 16px; color: #F3EFE9; max-width: 340px">
 <span style="align-self: flex-start; border: 2px solid #F4450F; color: #FF6A3D; font-size: 12px; font-weight: 500; letter-spacing: 0.28em; padding: 6px 14px; border-radius: 999px">{{atual.cat}}</span>
-<h2 style="margin: 0; font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">{{atual.t}}</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #C9C4BC">{{atual.d}}</p>
+<h2 class="cy-lbt" style="margin: 0; font-size: 40px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">{{atual.t}}</h2>
+<p class="cy-lbd" style="margin: 0; font-size: 18px; line-height: 1.5; color: #C9C4BC">{{atual.d}}</p>
+<div class="cy-swipe" aria-hidden="true">← arraste para o lado para ver outros vídeos →</div>
 <div style="font-size: 14px; color: #A39E97">{{atual.ano}}</div>
 
 <div style="display: flex; gap: 12px; margin-top: 8px; align-items: center">
@@ -312,7 +349,9 @@ class Component extends DCLogic {
       posicao: (idx + 1) + ' de ' + n,
       fechar: () => this.setState({ aberto: -1 }),
       proximo: () => this.setState({ aberto: (idx + 1) % n }),
-      anterior: () => this.setState({ aberto: (idx - 1 + n) % n })
+      anterior: () => this.setState({ aberto: (idx - 1 + n) % n }),
+      toqueIni: (e) => { const t = e.touches && e.touches[0]; if (t) { this._tx = t.clientX; this._ty = t.clientY; } },
+      toqueFim: (e) => { const t = e.changedTouches && e.changedTouches[0]; if (!t || this._tx == null) return; const dx = t.clientX - this._tx; const dy = t.clientY - this._ty; this._tx = null; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.3) this.setState({ aberto: dx < 0 ? (idx + 1) % n : (idx - 1 + n) % n }); }
     };
   }
 }

@@ -5,6 +5,16 @@ import sys
 
 SRC = '/mnt/user-data/outputs/artifacts/619adda7-f999-414c-b2be-2d68446844f0/project/'
 OUT = sys.argv[1] if len(sys.argv) > 1 else '/home/claude/site-cynder/public/'
+NAVFIX = """<script>
+(function(){var K='cyNavX',t=0;function go(){var n=document.querySelector('.cy-nav');if(!n){if(t++<60)return setTimeout(go,50);return;}
+var x=null;try{x=sessionStorage.getItem(K)}catch(e){}
+if(x!==null)n.scrollLeft=+x;
+var a=n.querySelector('.cy-navp.on,[aria-current="page"]');
+if(a){var l=a.offsetLeft-n.offsetLeft,r=l+a.offsetWidth;if(l<n.scrollLeft||r>n.scrollLeft+n.clientWidth)n.scrollTo({left:l-(n.clientWidth-a.offsetWidth)/2,behavior:x===null?'auto':'smooth'});}
+var save=function(){try{sessionStorage.setItem(K,n.scrollLeft)}catch(e){}};
+n.addEventListener('scroll',save,{passive:true});n.addEventListener('click',save,true);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+</script>"""
 DOMAIN = 'https://www.cynderfilmes.com.br'
 AMAP = json.load(open('/home/claude/export/amap.json'))
 PAGES = {
@@ -54,7 +64,7 @@ def convert(name, out):
         + helmet + '\n')
     page = (s[:head_end] + extra_head + s[head_end:x0]
             + '<template data-dc>' + inner + '</template>' + s[x1 + len('</x-dc>'):])
-    page = page.replace('</body>', '<script src="/dcl.js"></script>\n</body>')
+    page = page.replace('</body>', '<script src="/dcl.js"></script>\n' + NAVFIX + '\n</body>')
     open(OUT + out, 'w').write(page)
     left = re.findall(r'_blob|\.dc\.html', page)
     print(out, len(page), 'sobras:', left[:5])

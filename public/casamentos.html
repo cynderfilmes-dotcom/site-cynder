@@ -347,5 +347,15 @@ class Component extends DCLogic {
 }
 </script>
 <script src="/dcl.js"></script>
+<script>
+(function(){var K='cyNavX',t=0;function go(){var n=document.querySelector('.cy-nav');if(!n){if(t++<60)return setTimeout(go,50);return;}
+var x=null;try{x=sessionStorage.getItem(K)}catch(e){}
+if(x!==null)n.scrollLeft=+x;
+var a=n.querySelector('.cy-navp.on,[aria-current="page"]');
+if(a){var l=a.offsetLeft-n.offsetLeft,r=l+a.offsetWidth;if(l<n.scrollLeft||r>n.scrollLeft+n.clientWidth)n.scrollTo({left:l-(n.clientWidth-a.offsetWidth)/2,behavior:x===null?'auto':'smooth'});}
+var save=function(){try{sessionStorage.setItem(K,n.scrollLeft)}catch(e){}};
+n.addEventListener('scroll',save,{passive:true});n.addEventListener('click',save,true);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+</script>
 </body>
 </html>

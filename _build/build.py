@@ -59,6 +59,8 @@ def convert(name, out):
         inner = inner[:h0] + inner[h1 + len('</helmet>'):]
     extra_head = (
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+        '<style>html.cy-seen .cy-intro{display:none !important}</style>\n'
+        '<script>try{if(sessionStorage.getItem("cyIntro"))document.documentElement.classList.add("cy-seen");else sessionStorage.setItem("cyIntro","1")}catch(e){}</script>\n'
         f'<link rel="canonical" href="{DOMAIN}{CLEAN[out]}">\n'
         f'<meta property="og:url" content="{DOMAIN}{CLEAN[out]}">\n'
         + helmet + '\n')
